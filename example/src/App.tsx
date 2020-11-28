@@ -1,17 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Noxi from 'react-native-noxi';
+import { StyleSheet, View } from 'react-native';
+import { Button } from 'react-native-noxi';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    Noxi.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Button text={'This is an Button Component'} />
     </View>
   );
 }
