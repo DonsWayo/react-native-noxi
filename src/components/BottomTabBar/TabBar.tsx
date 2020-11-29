@@ -5,6 +5,7 @@ import {
   Dimensions,
   Animated,
   StyleSheet,
+  Platform,
 } from 'react-native';
 import TabBarItem from './TabBarItem';
 import { withTheme } from '../../core/Theme';
@@ -107,7 +108,7 @@ const style = StyleSheet.create({
       height: -1,
     },
     borderTopColor: 'gray',
-    borderTopWidth: 0.5,
+    borderTopWidth: Platform.OS === 'ios' ? 0.5 : 0,
     shadowOpacity: 0.1,
     shadowRadius: 4.0,
     elevation: 10,
