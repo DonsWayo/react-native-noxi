@@ -15,6 +15,7 @@ export type Theme = {
     placeholder: string;
     backdrop: string;
     notification: string;
+    buttonText: string;
   };
   animation: {
     scale: number;
@@ -54,6 +55,7 @@ declare global {
       onBackground: string;
       disabled: string;
       placeholder: string;
+      buttonText: string;
       backdrop: string;
       notification: string;
     }
