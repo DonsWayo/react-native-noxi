@@ -106,6 +106,8 @@ const style = StyleSheet.create({
       width: 0,
       height: -1,
     },
+    borderTopColor: 'gray',
+    borderTopWidth: 0.5,
     shadowOpacity: 0.1,
     shadowRadius: 4.0,
     elevation: 10,
@@ -113,7 +115,7 @@ const style = StyleSheet.create({
     bottom: 0,
   },
   slider: {
-    height: 5,
+    height: 2.5,
     position: 'absolute',
     top: 0,
     left: 30,

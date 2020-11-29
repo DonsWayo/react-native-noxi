@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-dynamic-vector-icons';
 import { withTheme } from '../../core/Theme';
 
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 6,
+    marginTop: Platform.OS === 'ios' ? 0 : 6,
   },
 });
