@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Button,
-  FlatList,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { Button, FlatList, StatusBar, StyleSheet, View } from 'react-native';
+import { Layout } from 'react-native-noxi';
 
 const DATA = [
   {
@@ -33,13 +27,14 @@ const HomeScreen = ({ navigation }) => {
   const renderItem = ({ item }) => <Item title={item.title} />;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Layout title="Noxi" showSearchComponent={false}>
       <FlatList
+        nestedScrollEnabled
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-    </SafeAreaView>
+    </Layout>
   );
 };
 
