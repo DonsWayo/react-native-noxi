@@ -64,7 +64,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-dynamic-vector-icons": "WrathChaos/react-native-dynamic-vector-icons#expo"
   },
   "jest": {
     "preset": "react-native",
