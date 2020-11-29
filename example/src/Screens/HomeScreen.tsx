@@ -15,6 +15,10 @@ const DATA = [
     id: 'c1db1-4d6c2d-aedd5-3ad53abb28ba',
     title: 'TextInput',
   },
+  {
+    id: 'c1db-aedd5-3ad53abb28ba',
+    title: 'Layout',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {

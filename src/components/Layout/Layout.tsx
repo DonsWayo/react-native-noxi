@@ -47,7 +47,7 @@ export class Layout extends PureComponent<LayoutProps> {
   static defaultProps = {
     scrollViewProps: {},
     searchBarHeight: SEARCH_BAR_HEIGHT,
-    showSearchComponent: true,
+    showSearchComponent: false,
     ScrollComponent: ScrollView,
   };
 
@@ -140,7 +140,7 @@ export class Layout extends PureComponent<LayoutProps> {
       fadeDirection,
       scrollViewProps = {},
       searchBarHeight = SEARCH_BAR_HEIGHT,
-      showSearchComponent,
+      showSearchComponent = false,
       toolbarLeft,
       onPressBackIcon,
       canGoBack = false,

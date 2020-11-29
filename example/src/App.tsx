@@ -7,6 +7,7 @@ import ButtonScreen from './Screens/ButtonScreen';
 import { BottomMenu } from './Screens/BottomBar';
 import { Provider as ReactNativeNoxiProvider } from 'react-native-noxi';
 import TextInputScreen from './Screens/TextInputScreen';
+import LayoutScreen from './Screens/LayoutScreen';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
           <Stack.Screen name="Button" component={ButtonScreen} />
           <Stack.Screen name="BottomMenu" component={BottomMenu} />
           <Stack.Screen name="TextInput" component={TextInputScreen} />
+          <Stack.Screen name="Layout" component={LayoutScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ReactNativeNoxiProvider>
