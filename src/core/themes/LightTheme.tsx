@@ -14,7 +14,7 @@ const LigthTheme: Theme = {
     buttonText: 'white',
     onBackground: '#000000',
     onSurface: '#000000',
-    disabled: 'color(black).alpha(0.26).rgb().string()',
+    disabled: 'gray',
     placeholder: 'color(black).alpha(0.54).rgb().string()',
     backdrop: 'color(black).alpha(0.5).rgb().string()',
     notification: 'pinkA400',

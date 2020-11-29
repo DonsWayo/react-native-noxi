@@ -17,6 +17,10 @@ const DATA = [
     id: 'bd7acbeawe-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'BottomMenu',
   },
+  {
+    id: 'c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'TextInput',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {

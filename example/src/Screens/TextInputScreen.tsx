@@ -1,19 +1,17 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { Button, SizeBox } from 'react-native-noxi';
+import { SizeBox, TextInput } from 'react-native-noxi';
 
-const ButtonScreen = () => {
+const TextInputScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Button size="small">button</Button>
+      <TextInput iconLeftName="home" />
       <SizeBox />
-      <Button size="normal">button</Button>
+      <TextInput iconRightName="github" />
       <SizeBox />
-      <Button size="normal" loading>
-        button
-      </Button>
+      <TextInput iconLeftName="home" iconRightName="github" />
       <SizeBox />
-      <Button size="full">button</Button>
+      <TextInput iconLeftName="home" iconRightName="github" editable={false} />
     </ScrollView>
   );
 };
@@ -23,7 +21,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 8,
   },
 });
 
-export default ButtonScreen;
+export default TextInputScreen;
