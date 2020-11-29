@@ -17,19 +17,22 @@ import {
   SafeAreaView,
   StatusBar,
   Platform,
+  FlatList,
 } from 'react-native';
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 import { EntryDirection, Entry } from './Entry';
-
+import Icon from 'react-native-dynamic-vector-icons';
 const { height, width } = Dimensions.get('window');
 const SEARCH_BAR_HEIGHT = 40;
 
 interface LayoutProps {
   title?: string;
   toolbarLeft?: React.ReactNode;
+  canGoBack: boolean;
   titleStyle?: StyleProp<TextStyle>;
   headlineStyle?: StyleProp<TextStyle>;
   children?: React.ReactNode;
+  onPressBackIcon?: () => void;
   containerStyle?: StyleProp<ViewStyle>;
   headerContainerStyle?: StyleProp<ViewStyle>;
   headerComponentContainerStyle?: StyleProp<ViewStyle>;
@@ -139,6 +142,8 @@ export class Layout extends PureComponent<LayoutProps> {
       searchBarHeight = SEARCH_BAR_HEIGHT,
       showSearchComponent,
       toolbarLeft,
+      onPressBackIcon,
+      canGoBack = false,
     } = this.props;
     const {
       isHeaderScrolled,
@@ -213,7 +218,19 @@ export class Layout extends PureComponent<LayoutProps> {
               headerComponentContainerStyle,
             ]}
           >
-            <View style={styles.headerComponentLeft}>{toolbarLeft}</View>
+            {!toolbarLeft && canGoBack ? (
+              <View style={styles.headerComponentLeft}>
+                <Icon
+                  name="arrow-back"
+                  type="ionicons"
+                  size={28}
+                  color="black"
+                  onPress={onPressBackIcon}
+                />
+              </View>
+            ) : (
+              <View style={styles.headerComponentLeft}>{toolbarLeft}</View>
+            )}
             <Entry
               style={styles.headerComponentMain}
               visible={isHeaderScrolled}
@@ -224,8 +241,10 @@ export class Layout extends PureComponent<LayoutProps> {
             <View />
           </SafeAreaView>
         </View>
-        <ScrollView
+        <FlatList
+          renderItem={null}
           overScrollMode="never"
+          nestedScrollEnabled
           onScroll={Animated.event(
             [
               {
@@ -240,8 +259,8 @@ export class Layout extends PureComponent<LayoutProps> {
           scrollEventThrottle={8}
           contentContainerStyle={scrollContainerStyle}
           {...scrollViewProps}
-        >
-          <React.Fragment>
+          data={[]}
+          ListHeaderComponent={
             <Animated.View
               style={[
                 showSearchComponent
@@ -288,9 +307,11 @@ export class Layout extends PureComponent<LayoutProps> {
                 </Animated.View>
               ) : null}
             </Animated.View>
+          }
+          ListFooterComponent={
             <Animated.View style={styles.children}>{children}</Animated.View>
-          </React.Fragment>
-        </ScrollView>
+          }
+        />
       </View>
     );
   }

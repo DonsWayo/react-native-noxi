@@ -12,7 +12,7 @@ const DATA = [
     title: 'BottomMenu',
   },
   {
-    id: 'c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'c1db1-4d6c2d-aedd5-3ad53abb28ba',
     title: 'TextInput',
   },
 ];
@@ -27,10 +27,10 @@ const HomeScreen = ({ navigation }) => {
   const renderItem = ({ item }) => <Item title={item.title} />;
 
   return (
-    <Layout title="Noxi" showSearchComponent={false}>
+    <Layout title="Noxi" showSearchComponent={false} canGoBack>
       <FlatList
-        nestedScrollEnabled
         data={DATA}
+        nestedScrollEnabled
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
