@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import PortalHost from '../components/Portal/PortalHost';
 import { ThemeProvider } from './Theme';
 import LightTheme from './themes/LightTheme';
 
@@ -13,7 +14,11 @@ const defaultProps: PropsProvider = {
 };
 
 const Provider: React.FC<PropsProvider> = (props: PropsProvider) => {
-  return <ThemeProvider>{props.children}</ThemeProvider>;
+  return (
+    <PortalHost>
+      <ThemeProvider>{props.children}</ThemeProvider>
+    </PortalHost>
+  );
 };
 
 Provider.defaultProps = defaultProps;
