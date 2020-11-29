@@ -1,6 +1,7 @@
 export type Theme = {
   dark: boolean;
   roundness: number;
+  iconsTheme: string;
   colors: {
     primary: string;
     background: string;
@@ -62,6 +63,7 @@ declare global {
     }
 
     interface Theme {
+      iconsTheme: string;
       dark: boolean;
       roundness: number;
       colors: ThemeColors;
