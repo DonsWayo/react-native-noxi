@@ -27,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
   const renderItem = ({ item }) => <Item title={item.title} />;
 
   return (
-    <Layout title="Noxi" showSearchComponent={false} canGoBack>
+    <Layout title="Noxi" showSearchComponent={false}>
       <FlatList
         data={DATA}
         nestedScrollEnabled

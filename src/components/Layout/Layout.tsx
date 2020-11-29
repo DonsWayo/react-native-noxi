@@ -28,7 +28,7 @@ const SEARCH_BAR_HEIGHT = 40;
 interface LayoutProps {
   title?: string;
   toolbarLeft?: React.ReactNode;
-  canGoBack: boolean;
+  canGoBack?: boolean;
   titleStyle?: StyleProp<TextStyle>;
   headlineStyle?: StyleProp<TextStyle>;
   children?: React.ReactNode;
