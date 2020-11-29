@@ -1,49 +1,57 @@
 import React from 'react';
 import {
-  ActivityIndicator,
-  GestureResponderEvent,
-  StyleProp,
   StyleSheet,
   Text,
   TouchableOpacity,
+  ActivityIndicator,
+  StyleProp,
   ViewStyle,
+  GestureResponderEvent,
 } from 'react-native';
+import { withTheme } from '../core/Theme';
 
-export interface Props {
-  text: string;
+interface ButtonProps {
+  children: React.ReactNode;
   loading?: boolean;
   size?: 'small' | 'normal' | 'full';
   style?: StyleProp<ViewStyle>;
   onPress?: (event: GestureResponderEvent) => void;
   onLayout?: (event: any) => void;
+  theme: ReactNativeNoxi.Theme;
 }
 
 const Button = ({
-  text,
+  theme,
+  children,
   loading,
   style,
   onPress,
   onLayout,
   size = 'normal',
-}: Props) => (
-  <TouchableOpacity
-    style={[styles.button, styles[size], style]}
-    onPress={onPress}
-    onLayout={onLayout}
-  >
-    {loading ? (
-      <ActivityIndicator />
-    ) : (
-      <Text numberOfLines={1} adjustsFontSizeToFit={true}>
-        {text}
-      </Text>
-    )}
-  </TouchableOpacity>
-);
+}: ButtonProps) => {
+  const buttonStyle = {
+    backgroundColor: theme.colors.primary,
+  };
+
+  return (
+    <TouchableOpacity
+      style={[styles.button, buttonStyle, styles[size], style]}
+      onPress={onPress}
+      onLayout={onLayout}
+    >
+      {loading ? (
+        <ActivityIndicator color={theme.colors.buttonText} />
+      ) : (
+        <Text numberOfLines={1} style={[{ color: theme.colors.buttonText }]}>
+          {children}
+        </Text>
+      )}
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   button: {
-    padding: 8,
     borderRadius: 50,
     justifyContent: 'center',
     flexDirection: 'row',
@@ -68,4 +76,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+export default withTheme(Button);

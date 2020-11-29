@@ -6,7 +6,12 @@ const ButtonScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView contentContainerStyle={styles.container}>
-        <Button text={'This is an Button Component'} />
+        <Button size="small">button</Button>
+        <Button size="normal">button</Button>
+        <Button size="normal" loading>
+          button
+        </Button>
+        <Button size="full">button</Button>
       </ScrollView>
     </SafeAreaView>
   );
