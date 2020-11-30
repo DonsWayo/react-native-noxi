@@ -12,6 +12,7 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import { withTheme } from '../core/Theme';
+import initials from 'initials';
 
 interface AvatarProps {
   theme: ReactNativeNoxi.Theme;
@@ -72,7 +73,7 @@ const Avatar = ({
           <Image source={src} style={avatarStlye} />
         ) : (
           <Text adjustsFontSizeToFit={true} style={[textStyle, styleText]}>
-            {text}
+            {initials(text)}
           </Text>
         )}
       </View>

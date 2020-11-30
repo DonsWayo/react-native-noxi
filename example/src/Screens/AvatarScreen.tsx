@@ -10,7 +10,7 @@ const AvatarScreen = ({ navigation }) => {
       canGoBack
       onPressBackIcon={() => navigation.goBack()}
     >
-      <Avatar text="JD" type="round" />
+      <Avatar text="Jhon Doe" type="round" />
       <SizeBox />
       <SizeBox />
       <Avatar
