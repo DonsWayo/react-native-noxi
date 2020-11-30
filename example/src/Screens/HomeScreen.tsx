@@ -19,6 +19,14 @@ const DATA = [
     id: 'c1db-aedd5-3ad53abb28ba',
     title: 'Layout',
   },
+  {
+    id: 'c1db-aedd5',
+    title: 'Dialog',
+  },
+  {
+    id: 'c1db-aedsdsdd5',
+    title: 'Avatar',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {

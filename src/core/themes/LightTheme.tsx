@@ -8,7 +8,7 @@ const LigthTheme: Theme = {
     primary: '#0D83FF',
     accent: '#03dac4',
     background: '#FFFFFF',
-    surface: 'F7F7F7',
+    surface: '#F7F7F7',
     error: '#B00020',
     text: 'black',
     buttonText: 'white',

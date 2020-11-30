@@ -5,6 +5,8 @@ import { withTheme, useTheme, ThemeProvider } from './core/Theme';
 import Provider from './core/Provider';
 import TextInput from './components/TextInput';
 import Layout from './components/Layout/Layout';
+import Dialog from './components/Dialog';
+import Avatar from './components/Avatar';
 
 export {
   Button,
@@ -16,4 +18,6 @@ export {
   Provider,
   TextInput,
   Layout,
+  Dialog,
+  Avatar,
 };
