@@ -27,6 +27,10 @@ const DATA = [
     id: 'c1db-aedsdsdd5',
     title: 'Avatar',
   },
+  {
+    id: 'c1db',
+    title: 'FAB',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {

@@ -7,7 +7,8 @@ import TextInput from './components/TextInput';
 import Layout from './components/Layout/Layout';
 import Dialog from './components/Dialog';
 import Avatar from './components/Avatar';
-import type FAB from './components/FAB';
+import FAB from './components/FAB';
+import Portal from './components/Portal/Portal';
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   Dialog,
   Avatar,
   FAB,
+  Portal,
 };

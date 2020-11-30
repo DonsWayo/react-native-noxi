@@ -10,6 +10,7 @@ import TextInputScreen from './Screens/TextInputScreen';
 import LayoutScreen from './Screens/LayoutScreen';
 import DialogScreen from './Screens/DialogScreen';
 import AvatarScreen from './Screens/AvatarScreen';
+import FABScreen from './Screens/FabScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name="Layout" component={LayoutScreen} />
           <Stack.Screen name="Dialog" component={DialogScreen} />
           <Stack.Screen name="Avatar" component={AvatarScreen} />
+          <Stack.Screen name="FAB" component={FABScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ReactNativeNoxiProvider>
