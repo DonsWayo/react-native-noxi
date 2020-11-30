@@ -210,7 +210,7 @@ export class Layout extends PureComponent<LayoutProps> {
       : animatedSearchScale;
 
     return (
-      <View style={[styles.container, containerStyle]}>
+      <View style={[styles.container]}>
         <View style={[styles.headerContainer, headerContainerStyle]}>
           <SafeAreaView
             style={[
@@ -245,6 +245,7 @@ export class Layout extends PureComponent<LayoutProps> {
           renderItem={null}
           overScrollMode="never"
           nestedScrollEnabled
+          style={{ flex: 1 }}
           onScroll={Animated.event(
             [
               {
@@ -309,7 +310,9 @@ export class Layout extends PureComponent<LayoutProps> {
             </Animated.View>
           }
           ListFooterComponent={
-            <Animated.View style={styles.children}>{children}</Animated.View>
+            <Animated.View style={[styles.children, containerStyle]}>
+              {children}
+            </Animated.View>
           }
         />
       </View>
