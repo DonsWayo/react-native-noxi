@@ -8,6 +8,15 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
+  clientModules: [require.resolve('./snackPlayerInitializer.js')],
+  scripts: [
+    {
+      src:
+        'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
+      defer: true,
+    },
+    { src: 'https://snack.expo.io/embed.js', defer: true },
+  ],
   themeConfig: {
     navbar: {
       title: 'My Site',
@@ -89,6 +98,7 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/facebook/docusaurus/edit/master/website/',
+          remarkPlugins: [require('@react-native-website/remark-snackplayer')],
         },
         blog: {
           showReadingTime: true,
