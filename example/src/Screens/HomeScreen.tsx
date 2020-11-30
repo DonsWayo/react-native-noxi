@@ -1,6 +1,7 @@
-import React from 'react';
-import { Button, FlatList, StatusBar, StyleSheet, View } from 'react-native';
-import { Layout } from 'react-native-noxi';
+import React, { useContext, useState } from 'react';
+import { Button, FlatList, StatusBar, StyleSheet, Switch, View } from 'react-native';
+import { DarkTheme, Layout, LigthTheme } from 'react-native-noxi';
+import ThemeContext from '../ThemeContext';
 
 const DATA = [
   {
@@ -31,9 +32,21 @@ const DATA = [
     id: 'c1db',
     title: 'FAB',
   },
+  {
+    id: 'c1dwewb',
+    title: 'Text',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const { setTheme } = useContext(ThemeContext);
+
+  const toggleSwitch = () => {
+    setIsEnabled((previousState) => !previousState);
+    setTheme(isEnabled ? LigthTheme : DarkTheme);
+  };
+
   const Item = ({ title }) => (
     <View style={styles.item}>
       <Button title={title} onPress={() => navigation.navigate(title)} />
@@ -44,6 +57,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <Layout title="Noxi" showSearchComponent={false}>
+      <Switch onValueChange={toggleSwitch} value={isEnabled} />
       <FlatList
         data={DATA}
         nestedScrollEnabled

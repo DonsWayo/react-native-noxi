@@ -5,7 +5,7 @@ import LightTheme from './themes/LightTheme';
 
 interface PropsProvider {
   children: ReactNode;
-  theme?: any;
+  theme?: ReactNativeNoxi.Theme;
 }
 
 const defaultProps: PropsProvider = {
@@ -13,10 +13,13 @@ const defaultProps: PropsProvider = {
   children: null,
 };
 
-const Provider: React.FC<PropsProvider> = (props: PropsProvider) => {
+const Provider: React.FC<PropsProvider> = ({
+  theme,
+  children,
+}: PropsProvider) => {
   return (
     <PortalHost>
-      <ThemeProvider>{props.children}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </PortalHost>
   );
 };

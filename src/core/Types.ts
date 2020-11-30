@@ -23,7 +23,7 @@ export type Theme = {
 };
 declare global {
   namespace ReactNativeNoxi {
-    interface ThemeFont {
+    /* interface ThemeFont {
       fontFamily: string;
       fontWeight?:
         | 'normal'
@@ -43,7 +43,7 @@ declare global {
       medium: ThemeFont;
       light: ThemeFont;
       thin: ThemeFont;
-    }
+    } */
     interface ThemeColors {
       primary: string;
       background: string;
@@ -69,7 +69,7 @@ declare global {
       dark: boolean;
       roundness: number;
       colors: ThemeColors;
-      fonts: ThemeFonts;
+      //fonts: ThemeFonts;
       animation: ThemeAnimation;
     }
   }
