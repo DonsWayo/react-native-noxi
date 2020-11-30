@@ -4,6 +4,32 @@ title: Style Guide
 sidebar_label: Style Guide
 slug: /
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  groupId="package-managers"
+  defaultValue="win"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]
+}>
+<TabItem value="npm">
+
+```shell
+npm install react-native-noxi
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react-native-noxi
+```
+
+</TabItem>
+</Tabs>
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
 
