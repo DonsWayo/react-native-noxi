@@ -4,6 +4,7 @@ import {
   StyleSheet,
   StyleProp,
   ViewStyle,
+  Animated,
 } from 'react-native';
 import { withTheme } from '../core/Theme';
 import Icon from 'react-native-dynamic-vector-icons';
@@ -25,11 +26,16 @@ const FAB: React.FC<IFABProps> = ({
   type = 'small',
   icon,
   onPress,
+  visible = true,
   enabled = true,
   style,
   position = 'bottom-right',
 }) => {
   let fabPos: StyleProp<any> = {};
+  const { current: visibility } = React.useRef<Animated.Value>(
+    new Animated.Value(0)
+  );
+  const { scale } = theme.animation;
 
   switch (position) {
     case 'top-left':
@@ -53,12 +59,36 @@ const FAB: React.FC<IFABProps> = ({
       break;
   }
 
+  React.useEffect(() => {
+    if (visible) {
+      Animated.timing(visibility, {
+        toValue: 1,
+        duration: 200 * scale,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      Animated.timing(visibility, {
+        toValue: 0,
+        duration: 100 * scale,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [visible, scale, visibility]);
+
   return (
     <Portal>
       <TouchableOpacity
         style={[
           styles[type],
-          { backgroundColor: theme.colors.primary },
+          {
+            backgroundColor: theme.colors.primary,
+            opacity: visibility,
+            transform: [
+              {
+                scale: visibility,
+              },
+            ],
+          },
           fabPos,
           style,
         ]}
