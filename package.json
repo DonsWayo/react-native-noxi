@@ -28,7 +28,8 @@
     "example": "yarn --cwd example",
     "docs": "yarn --cwd docs",
     "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods"
+    "bootstrap": "yarn example && yarn && yarn pods",
+    "gentypes": "npx typedoc --plugin typedoc-plugin-markdown"
   },
   "keywords": [
     "react-native",
