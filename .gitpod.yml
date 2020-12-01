@@ -4,3 +4,9 @@ image:
 tasks:
   - init: yarn install && yarn global add expo-cli
     command: yarn run example start
+
+vscode:
+  extensions:
+    - yzhang.markdown-all-in-one@3.4.0:GR9Y7wA3m2/LsuZxLaCFtg==
+    - dendron.dendron-markdown-preview-enhanced@0.10.11:SXTtJXdtccGaIrYJxy/kjw==
+    - bierner.markdown-preview-github-styles@0.1.6:7Xkp16X2MuWg//+162XzKw==
