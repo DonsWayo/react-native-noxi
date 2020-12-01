@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import {
   StyleSheet,
@@ -7,7 +6,6 @@ import {
   ActivityIndicator,
   StyleProp,
   ViewStyle,
-  GestureResponderEvent,
 } from 'react-native';
 import { withTheme } from '../../core/Theme';
 import Select from './Select';
@@ -18,7 +16,6 @@ interface SelectButtonProps {
   loading?: boolean;
   size?: 'small' | 'normal' | 'full';
   style?: StyleProp<ViewStyle>;
-  onPress?: (event: GestureResponderEvent) => void;
   theme: ReactNativeNoxi.Theme;
 }
 
@@ -28,7 +25,6 @@ const SelectButton = ({
   label,
   loading,
   style,
-  onPress,
   size = 'small',
 }: SelectButtonProps) => {
   const [state, setState] = useState({
