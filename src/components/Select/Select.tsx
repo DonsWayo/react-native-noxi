@@ -14,13 +14,10 @@ const SCREEN_WIDTH = Dimensions.get('screen').width;
 const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 interface SelectProps {
-  title?: string;
-  message?: string;
   xPos: number;
   yPos: number;
   onClose: any;
   backgroundColorOverlay?: string;
-  header?: ReactNode;
   duration?: string;
   show?: boolean;
   children?: ReactNode;
@@ -28,11 +25,8 @@ interface SelectProps {
 }
 
 const Select = ({
-  title = 'Title',
-  message = 'Message',
   show = false,
   theme,
-  header,
   xPos = 0,
   yPos = 0,
   children,
@@ -90,7 +84,6 @@ const Select = ({
   }
 
   useEffect(() => {
-    console.log('x', xPos);
     if (show) {
       showSelect();
     } else {

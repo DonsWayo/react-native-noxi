@@ -171,7 +171,6 @@ export class Layout extends PureComponent<LayoutProps> {
       margin = StatusBar.currentHeight;
     }
     const estimatedLargeTitleHeight = titleStyles.lineHeight + margin;
-    console.log(estimatedLargeTitleHeight);
     const largeTitleHeight = _largeTitleHeight || estimatedLargeTitleHeight;
     const expandedLargeTitleHeight =
       largeTitleHeight + searchBarHeight + styles.searchContainer.marginTop;

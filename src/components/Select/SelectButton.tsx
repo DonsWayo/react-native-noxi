@@ -62,8 +62,6 @@ const SelectButton = ({
         style={[styles.button, buttonStyle, styles[size], style]}
         onPress={showSelect}
         onLayout={({ nativeEvent }) => {
-          console.log('opa');
-          console.log(nativeEvent.layout);
           setSelectPos(nativeEvent.layout);
         }}
       >

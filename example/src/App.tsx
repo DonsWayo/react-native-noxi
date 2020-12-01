@@ -24,7 +24,6 @@ const Stack = createStackNavigator();
 export default function App() {
   const [theme, setTheme] = useState(LigthTheme);
   const value = { theme, setTheme };
-  console.log(theme);
   return (
     //@ts-ignore
     <ThemeContext.Provider value={value}>
