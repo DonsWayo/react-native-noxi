@@ -1,0 +1,6 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: yarn install && yarn global add expo-cli
+    command: yarn run example start
