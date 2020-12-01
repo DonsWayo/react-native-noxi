@@ -1,6 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Button, FlatList, StatusBar, StyleSheet, Switch, View } from 'react-native';
-import { DarkTheme, Layout, LigthTheme } from 'react-native-noxi';
+import {
+  Button,
+  FlatList,
+  StatusBar,
+  StyleSheet,
+  Switch,
+  View,
+} from 'react-native';
+import {
+  DarkTheme,
+  Layout,
+  LigthTheme,
+  SizeBox,
+  Text,
+} from 'react-native-noxi';
 import ThemeContext from '../ThemeContext';
 
 const DATA = [
@@ -56,8 +69,18 @@ const HomeScreen = ({ navigation }) => {
   const renderItem = ({ item }) => <Item title={item.title} />;
 
   return (
-    <Layout title="Noxi" showSearchComponent={false}>
-      <Switch onValueChange={toggleSwitch} value={isEnabled} />
+    <Layout
+      title="Noxi"
+      largeToolbarRight={
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <Text type="h3">
+            {isEnabled ? 'current: Dark' : 'current: Light'}
+          </Text>
+          <SizeBox />
+          <Switch onValueChange={toggleSwitch} value={isEnabled} />
+        </View>
+      }
+    >
       <FlatList
         data={DATA}
         nestedScrollEnabled

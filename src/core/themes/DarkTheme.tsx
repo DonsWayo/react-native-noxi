@@ -7,8 +7,8 @@ const DarkTheme: Theme = {
   colors: {
     primary: '#0D83FF',
     accent: '#03dac4',
-    background: 'black',
-    surface: 'black',
+    background: '#000000',
+    surface: '#000000',
     error: '#B00020',
     text: 'white',
     buttonText: 'white',

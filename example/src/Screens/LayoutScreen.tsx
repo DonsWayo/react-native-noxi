@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
-import { Layout } from 'react-native-noxi';
+import { FlatList, View } from 'react-native';
+import { Layout, Text } from 'react-native-noxi';
 
 const LayoutScreen = ({ navigation }) => {
   const [state, setstate] = useState([]);
@@ -20,7 +20,7 @@ const LayoutScreen = ({ navigation }) => {
 
   const Item = ({ title }) => (
     <View style={{ height: 40 }}>
-      <Text>{title}</Text>
+      <Text type="h4">{title}</Text>
     </View>
   );
 

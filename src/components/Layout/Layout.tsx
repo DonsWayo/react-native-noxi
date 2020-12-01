@@ -22,12 +22,15 @@ import {
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 import { EntryDirection, Entry } from './Entry';
 import Icon from 'react-native-dynamic-vector-icons';
+import { withTheme } from '../../core/Theme';
 const { height, width } = Dimensions.get('window');
 const SEARCH_BAR_HEIGHT = 40;
 
 interface LayoutProps {
   title?: string;
   toolbarLeft?: React.ReactNode;
+  toolbarRight?: React.ReactNode;
+  largeToolbarRight?: React.ReactNode;
   canGoBack?: boolean;
   titleStyle?: StyleProp<TextStyle>;
   headlineStyle?: StyleProp<TextStyle>;
@@ -41,6 +44,7 @@ interface LayoutProps {
   scrollViewProps?: ScrollViewProps;
   showSearchComponent?: boolean;
   searchBarHeight?: number;
+  theme: ReactNativeNoxi.Theme;
 }
 
 export class Layout extends PureComponent<LayoutProps> {
@@ -142,8 +146,11 @@ export class Layout extends PureComponent<LayoutProps> {
       searchBarHeight = SEARCH_BAR_HEIGHT,
       showSearchComponent = false,
       toolbarLeft,
+      toolbarRight,
+      largeToolbarRight,
       onPressBackIcon,
       canGoBack = false,
+      theme,
     } = this.props;
     const {
       isHeaderScrolled,
@@ -210,7 +217,9 @@ export class Layout extends PureComponent<LayoutProps> {
       : animatedSearchScale;
 
     return (
-      <View style={[styles.container]}>
+      <View
+        style={[styles.container, { backgroundColor: theme.colors.background }]}
+      >
         <View style={[styles.headerContainer, headerContainerStyle]}>
           <SafeAreaView
             style={[
@@ -224,7 +233,7 @@ export class Layout extends PureComponent<LayoutProps> {
                   name="arrow-back"
                   type="ionicons"
                   size={28}
-                  color="black"
+                  color={theme.colors.text}
                   onPress={onPressBackIcon}
                 />
               </View>
@@ -236,8 +245,17 @@ export class Layout extends PureComponent<LayoutProps> {
               visible={isHeaderScrolled}
               direction={fadeDirection}
             >
-              <Text style={[styles.headline, headlineStyle]}>{title}</Text>
+              <Text
+                style={[
+                  styles.headline,
+                  { color: theme.colors.text },
+                  headlineStyle,
+                ]}
+              >
+                {title}
+              </Text>
             </Entry>
+            <View style={styles.headerComponentRight}>{toolbarRight}</View>
             <View />
           </SafeAreaView>
         </View>
@@ -272,6 +290,8 @@ export class Layout extends PureComponent<LayoutProps> {
                     }
                   : {
                       paddingBottom: 15,
+                      flex: 1,
+                      flexDirection: 'row',
                     },
               ]}
               onLayout={this.onLargeTitleLayout}
@@ -284,6 +304,7 @@ export class Layout extends PureComponent<LayoutProps> {
                     titleStyles,
                     {
                       fontSize: animatedFontSize,
+                      color: theme.colors.text,
                     },
                   ]}
                   onLayout={this.onLayout}
@@ -307,6 +328,7 @@ export class Layout extends PureComponent<LayoutProps> {
                   </Entry>
                 </Animated.View>
               ) : null}
+              {largeToolbarRight}
             </Animated.View>
           }
           ListFooterComponent={
@@ -339,30 +361,41 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
   },
   headerComponentLeft: {
+    flex: 1,
     marginLeft: 20,
     justifyContent: 'center',
     alignItems: 'flex-start',
+  },
+  headerComponentRight: {
+    flex: 1,
+    marginRight: 20,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+  },
+  largeHeaderComponentRight: {
+    flex: 1,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
   },
   headerComponentMain: {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  headerComponentRight: {
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
   headline: {
     fontSize: 17,
     lineHeight: 22,
     fontWeight: '500',
-    letterSpacing: 0.019,
-    marginLeft: -width / 10,
+    letterSpacing: 0.2,
+    marginLeft: -width / 24,
   },
   title: {
     letterSpacing: 0.011,
     fontWeight: '700',
   },
   scroll: {
+    flex: 1,
+    flexDirection: 'row',
     marginLeft: 20,
     marginRight: 20,
   },
@@ -392,4 +425,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Layout;
+export default withTheme(Layout);
