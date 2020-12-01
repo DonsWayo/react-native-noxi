@@ -49,6 +49,10 @@ const DATA = [
     id: 'c1dwewb',
     title: 'Text',
   },
+  {
+    id: 'c1dwewsdsdb',
+    title: 'Select',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {
@@ -57,6 +61,7 @@ const HomeScreen = ({ navigation }) => {
 
   const toggleSwitch = () => {
     setIsEnabled((previousState) => !previousState);
+    //@ts-ignore
     setTheme(isEnabled ? LigthTheme : DarkTheme);
   };
 

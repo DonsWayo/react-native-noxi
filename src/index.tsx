@@ -13,6 +13,9 @@ import Portal from './components/Portal/Portal';
 import LigthTheme from './core/themes/LightTheme';
 import DarkTheme from './core/themes/DarkTheme';
 import ListItem from './components/ListItem';
+import Select from './components/Select/Select';
+import SelectButton from './components/Select/SelectButton';
+import SelectItem from './components/Select/SelectItem';
 
 export {
   Button,
@@ -32,4 +35,7 @@ export {
   LigthTheme,
   DarkTheme,
   ListItem,
+  Select,
+  SelectButton,
+  SelectItem,
 };

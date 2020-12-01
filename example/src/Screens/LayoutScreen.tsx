@@ -1,6 +1,6 @@
-import React, { useEffect, useState, isValidElement } from 'react';
-import { FlatList, View } from 'react-native';
-import { Layout, Text, ListItem, Avatar } from 'react-native-noxi';
+import React, { useEffect, useState } from 'react';
+import { FlatList } from 'react-native';
+import { Layout, ListItem, Avatar } from 'react-native-noxi';
 import Icon from 'react-native-dynamic-vector-icons';
 
 const LayoutScreen = ({ navigation }) => {

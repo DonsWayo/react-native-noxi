@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState, ReactNode } from 'react';
 import {
   View,
@@ -7,6 +8,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { withTheme } from '../../core/Theme';
+import Portal from '../Portal/Portal';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 const SCREEN_HEIGHT = Dimensions.get('screen').height;
@@ -101,35 +103,37 @@ const Select = ({
   }, [xPos, yPos]);
 
   return (
-    <TouchableWithoutFeedback onPress={onClose}>
-      <Animated.View
-        style={[
-          styles.container,
-          {
-            backgroundColor: backgroundColorOverlay,
-            opacity: state.opacity,
-            transform: [{ translateY: state.positionView }],
-          },
-        ]}
-      >
+    <Portal>
+      <TouchableWithoutFeedback onPress={onClose}>
         <Animated.View
           style={[
-            styles.SelectContainer,
-            { backgroundColor: theme?.colors.surface },
+            styles.container,
             {
-              transform: [
-                { translateY: state.positionY },
-                { translateX: state.positionX },
-              ],
+              backgroundColor: backgroundColorOverlay,
+              opacity: state.opacity,
+              transform: [{ translateY: state.positionView }],
             },
           ]}
         >
-          <View style={styles.content}>
-            <View style={[styles.SelectContent]}>{children}</View>
-          </View>
+          <Animated.View
+            style={[
+              styles.SelectContainer,
+              { backgroundColor: theme?.colors.surface },
+              {
+                transform: [
+                  { translateY: state.positionY },
+                  { translateX: state.positionX },
+                ],
+              },
+            ]}
+          >
+            <View style={styles.content}>
+              <View style={[styles.SelectContent]}>{children}</View>
+            </View>
+          </Animated.View>
         </Animated.View>
-      </Animated.View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </Portal>
   );
 };
 

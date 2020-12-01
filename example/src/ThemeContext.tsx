@@ -3,7 +3,7 @@ import { LigthTheme } from 'react-native-noxi';
 
 const ThemeContext = React.createContext({
   theme: LigthTheme,
-  setTheme: (args: any) => {},
+  setTheme: () => {},
 });
 
 export default ThemeContext;

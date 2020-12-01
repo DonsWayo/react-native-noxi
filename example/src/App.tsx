@@ -5,7 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './Screens/HomeScreen';
 import ButtonScreen from './Screens/ButtonScreen';
 import { BottomMenu } from './Screens/BottomBar';
-import { LigthTheme, DarkTheme,Provider as ReactNativeNoxiProvider } from 'react-native-noxi';
+import {
+  LigthTheme,
+  Provider as ReactNativeNoxiProvider,
+} from 'react-native-noxi';
 import TextInputScreen from './Screens/TextInputScreen';
 import LayoutScreen from './Screens/LayoutScreen';
 import DialogScreen from './Screens/DialogScreen';
@@ -14,6 +17,7 @@ import FABScreen from './Screens/FabScreen';
 import TextsScreen from './Screens/TextScreen';
 import { useState } from 'react';
 import ThemeContext from './ThemeContext';
+import SelectScreen from './Screens/SelectScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +26,7 @@ export default function App() {
   const value = { theme, setTheme };
   console.log(theme);
   return (
+    //@ts-ignore
     <ThemeContext.Provider value={value}>
       <ReactNativeNoxiProvider theme={value.theme}>
         <NavigationContainer>
@@ -39,6 +44,7 @@ export default function App() {
             <Stack.Screen name="Avatar" component={AvatarScreen} />
             <Stack.Screen name="FAB" component={FABScreen} />
             <Stack.Screen name="Text" component={TextsScreen} />
+            <Stack.Screen name="Select" component={SelectScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ReactNativeNoxiProvider>
