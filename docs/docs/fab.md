@@ -1,19 +1,14 @@
 ---
-id: button
-title: Button
+id: fab
+title: FAB
 ---
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
 
 ```tsx
-import { Button } from 'react-native-noxi';
+import { FAB } from 'react-native-noxi';
 
-<Button
-  size="small"
-  onPress={click}
-  size="normal">
-  button name!
-</Button>
+<FAB icon="edit" position="bottom-right" visible={visible} />
 ```
 
 ## Example
@@ -108,54 +103,56 @@ export default App;
 
 ## Props
 
-* [children](buttonprops.md#children)
-* [loading](buttonprops.md#loading)
-* [onLayout](buttonprops.md#onlayout)
-* [onPress](buttonprops.md#onpress)
-* [size](buttonprops.md#size)
-* [style](buttonprops.md#style)
-* [theme](buttonprops.md#theme)
+* [backgroundColorOverlay](dialogprops.md#backgroundcoloroverlay)
+* [children](dialogprops.md#children)
+* [duration](dialogprops.md#duration)
+* [header](dialogprops.md#header)
+* [message](dialogprops.md#message)
+* [show](dialogprops.md#show)
+* [theme](dialogprops.md#theme)
+* [title](dialogprops.md#title)
 
 ## Properties
 
+### backgroundColorOverlay
+
+• `Optional` **backgroundColorOverlay**: undefined \| string
+
+___
+
 ### children
 
-•  **children**: React.ReactNode
+• `Optional` **children**: ReactNode
+___
+
+### duration
+
+• `Optional` **duration**: undefined \| string
+___
+
+### header
+
+• `Optional` **header**: ReactNode
 
 ___
 
-### loading
+### message
 
-• `Optional` **loading**: undefined \| false \| true
-
-___
-
-### onLayout
-
-• `Optional` **onLayout**: undefined \| (event: any) => void
+• `Optional` **message**: undefined \| string
 
 ___
 
-### onPress
+### show
 
-• `Optional` **onPress**: undefined \| (event: GestureResponderEvent) => void
-
-___
-
-### size
-
-• `Optional` **size**: \"small\" \| \"normal\" \| \"full\"
-
-___
-
-### style
-
-• `Optional` **style**: `StyleProp<ViewStyle>`
+• `Optional` **show**: undefined \| false \| true
 
 ___
 
 ### theme
 
 •  **theme**: [Theme]
-
 ___
+
+### title
+
+• `Optional` **title**: undefined \| string

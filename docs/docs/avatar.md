@@ -1,19 +1,14 @@
 ---
-id: button
-title: Button
+id: avatar
+title: Avatar
 ---
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
 
 ```tsx
-import { Button } from 'react-native-noxi';
+import { Avatar } from 'react-native-noxi';
 
-<Button
-  size="small"
-  onPress={click}
-  size="normal">
-  button name!
-</Button>
+<Avatar text="Jhon Doe" type="round" />
 ```
 
 ## Example
@@ -108,31 +103,22 @@ export default App;
 
 ## Props
 
-* [children](buttonprops.md#children)
-* [loading](buttonprops.md#loading)
-* [onLayout](buttonprops.md#onlayout)
-* [onPress](buttonprops.md#onpress)
-* [size](buttonprops.md#size)
-* [style](buttonprops.md#style)
-* [theme](buttonprops.md#theme)
+* [color](avatarprops.md#color)
+* [onPress](avatarprops.md#onpress)
+* [size](avatarprops.md#size)
+* [src](avatarprops.md#src)
+* [style](avatarprops.md#style)
+* [styleText](avatarprops.md#styletext)
+* [text](avatarprops.md#text)
+* [textColor](avatarprops.md#textcolor)
+* [theme](avatarprops.md#theme)
+* [type](avatarprops.md#type)
 
 ## Properties
 
-### children
+### color
 
-•  **children**: React.ReactNode
-
-___
-
-### loading
-
-• `Optional` **loading**: undefined \| false \| true
-
-___
-
-### onLayout
-
-• `Optional` **onLayout**: undefined \| (event: any) => void
+• `Optional` **color**: undefined \| string
 
 ___
 
@@ -144,7 +130,13 @@ ___
 
 ### size
 
-• `Optional` **size**: \"small\" \| \"normal\" \| \"full\"
+• `Optional` **size**: undefined \| number
+
+___
+
+### src
+
+• `Optional` **src**: ImageSourcePropType
 
 ___
 
@@ -154,8 +146,32 @@ ___
 
 ___
 
+### styleText
+
+• `Optional` **styleText**: `StyleProp<TextStyle>`
+
+___
+
+### text
+
+• `Optional` **text**: any
+
+___
+
+### textColor
+
+• `Optional` **textColor**: undefined \| string
+
+___
+
 ### theme
 
 •  **theme**: [Theme]
 
+
 ___
+
+### type
+
+• `Optional` **type**: \"round\" \| \"square\"
+

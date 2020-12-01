@@ -1547,7 +1547,7 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@react-native-website/remark-snackplayer@/Users/donwayo/Desktop/react-native-awesome-module/docs/plugins/remark-snackplayer":
+"@react-native-website/remark-snackplayer@./plugins/remark-snackplayer":
   version "0.0.5"
   dependencies:
     dedent "^0.7.0"
