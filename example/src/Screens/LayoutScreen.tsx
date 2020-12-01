@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, isValidElement } from 'react';
 import { FlatList, View } from 'react-native';
-import { Layout, Text } from 'react-native-noxi';
+import { Layout, Text, ListItem, Avatar } from 'react-native-noxi';
+import Icon from 'react-native-dynamic-vector-icons';
 
 const LayoutScreen = ({ navigation }) => {
   const [state, setstate] = useState([]);
@@ -18,19 +19,22 @@ const LayoutScreen = ({ navigation }) => {
     getData();
   }, []);
 
-  const Item = ({ title }) => (
-    <View style={{ height: 40 }}>
-      <Text type="h4">{title}</Text>
-    </View>
+  const Item = ({ title, id }) => (
+    <ListItem
+      title={title}
+      subTitle={title}
+      itemLeft={<Avatar text={id.toString()} type="round" size={40} />}
+      itemRight={<Icon name="delete" type="ionicons" size={28} color="red" />}
+    />
   );
 
-  const renderItem = ({ item }) => <Item title={item.title} />;
+  const renderItem = ({ item }) => <Item title={item.title} id={item.id} />;
 
   return (
     <Layout
       title="ExampleLayout"
       canGoBack
-      containerStyle={{ flexGrow: 1 }}
+      containerStyle={{ flexGrow: 1, padding: 8 }}
       onPressBackIcon={() => navigation.goBack()}
     >
       <FlatList

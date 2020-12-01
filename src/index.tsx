@@ -12,6 +12,7 @@ import Text from './components/Text';
 import Portal from './components/Portal/Portal';
 import LigthTheme from './core/themes/LightTheme';
 import DarkTheme from './core/themes/DarkTheme';
+import ListItem from './components/ListItem';
 
 export {
   Button,
@@ -30,4 +31,5 @@ export {
   Text,
   LigthTheme,
   DarkTheme,
+  ListItem,
 };
