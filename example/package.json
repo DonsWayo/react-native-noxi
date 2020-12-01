@@ -9,6 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "start": "expo start",
+    "start:pod": "expo start --host tunnel",
     "test": "jest"
   },
   "dependencies": {
