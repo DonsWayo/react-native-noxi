@@ -31,7 +31,7 @@ const Select = ({
   yPos = 0,
   children,
   onClose,
-  backgroundColorOverlay = 'rgba(0, 0, 0, 0.1)',
+  backgroundColorOverlay = theme.colors.backdrop,
 }: SelectProps) => {
   const [state, setState] = useState({
     positionView: new Animated.Value(yPos),

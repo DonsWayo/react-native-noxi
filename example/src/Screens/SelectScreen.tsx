@@ -1,6 +1,12 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Layout, SelectButton, SelectItem } from 'react-native-noxi';
+import {
+  Layout,
+  SelectButton,
+  SelectItem,
+  Chip,
+  SizeBox,
+} from 'react-native-noxi';
 
 const SelectScreen = ({ navigation }) => {
   return (
@@ -11,9 +17,21 @@ const SelectScreen = ({ navigation }) => {
       onPressBackIcon={() => navigation.goBack()}
     >
       <SelectButton label="Select">
-        <SelectItem label="logom" />
-        <SelectItem label="logom2" />
-        <SelectItem label="logom3" />
+        <SelectItem label="label" />
+        <SelectItem label="laaabel" />
+      </SelectButton>
+      <SizeBox />
+      <SelectButton label="Select">
+        <SelectItem label="label" icon="github" />
+        <SelectItem label="laaabel" icon="github" />
+      </SelectButton>
+      <SizeBox />
+      <SelectButton label="Select">
+        <Chip icon="github">Basic Text</Chip>
+        <SizeBox />
+        <Chip icon="github">Basic Text</Chip>
+        <SizeBox />
+        <Chip icon="github">Basic Text</Chip>
       </SelectButton>
     </Layout>
   );
