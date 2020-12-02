@@ -7,9 +7,21 @@ const ButtonScreen = () => {
     <ScrollView contentContainerStyle={styles.container}>
       <Button size="small">button</Button>
       <SizeBox />
+      <Button size="small" type="square" outline>
+        button
+      </Button>
+      <SizeBox />
+      <Button size="normal" type="square">
+        button
+      </Button>
+      <SizeBox />
       <Button size="normal">button</Button>
       <SizeBox />
       <Button size="normal" loading>
+        button
+      </Button>
+      <SizeBox />
+      <Button size="normal" loading outline>
         button
       </Button>
       <SizeBox />

@@ -12,12 +12,14 @@ import { withTheme } from '../core/Theme';
 
 interface ButtonProps {
   children: React.ReactNode;
+  theme: ReactNativeNoxi.Theme;
   loading?: boolean;
   size?: 'small' | 'normal' | 'full';
+  type?: 'round' | 'square';
   style?: StyleProp<ViewStyle>;
   onPress?: (event: GestureResponderEvent) => void;
   onLayout?: (event: any) => void;
-  theme: ReactNativeNoxi.Theme;
+  outline?: boolean;
 }
 
 const Button = ({
@@ -28,10 +30,23 @@ const Button = ({
   onPress,
   onLayout,
   size = 'normal',
+  type,
+  outline,
 }: ButtonProps) => {
   const buttonStyle = {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: outline ? 'transparent' : theme.colors.primary,
+    borderRadius: 50,
+    borderWidth: outline ? 1 : 0,
+    borderColor: outline ? theme.colors.primary : 'transparent',
   };
+
+  if (type === 'round') {
+    buttonStyle.borderRadius = 50;
+  }
+
+  if (type === 'square') {
+    buttonStyle.borderRadius = 10;
+  }
 
   return (
     <TouchableOpacity
@@ -40,9 +55,16 @@ const Button = ({
       onLayout={onLayout}
     >
       {loading ? (
-        <ActivityIndicator color={theme.colors.buttonText} />
+        <ActivityIndicator
+          color={outline ? theme.colors.primary : theme.colors.buttonText}
+        />
       ) : (
-        <Text numberOfLines={1} style={[{ color: theme.colors.buttonText }]}>
+        <Text
+          numberOfLines={1}
+          style={[
+            { color: outline ? theme.colors.primary : theme.colors.buttonText },
+          ]}
+        >
           {children}
         </Text>
       )}
@@ -52,7 +74,6 @@ const Button = ({
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 50,
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
