@@ -18,6 +18,7 @@ import TextsScreen from './Screens/TextScreen';
 import { useState } from 'react';
 import ThemeContext from './ThemeContext';
 import SelectScreen from './Screens/SelectScreen';
+import ChipScreen from './Screens/ChipScreen';
 
 const Stack = createStackNavigator();
 
@@ -44,6 +45,7 @@ export default function App() {
             <Stack.Screen name="FAB" component={FABScreen} />
             <Stack.Screen name="Text" component={TextsScreen} />
             <Stack.Screen name="Select" component={SelectScreen} />
+            <Stack.Screen name="Chip" component={ChipScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ReactNativeNoxiProvider>
