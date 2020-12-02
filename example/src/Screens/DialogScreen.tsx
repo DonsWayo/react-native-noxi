@@ -23,10 +23,10 @@ const DialogScreen = ({ navigation }) => {
         title="Title"
         header={
           <Image
-            style={{ width: 200, height: 200 }}
+            style={{ width: 100, height: 100 }}
             source={{
               uri:
-                'https://img2.freepng.es/20180404/lzq/kisspng-template-logo-company-speedometer-5ac566f9861781.2270677415228863935493.jpg',
+                'https://images.squarespace-cdn.com/content/v1/592e86ee9de4bb6e73d8c154/1514032294927-RQFIXIR332YVK2D58E64/ke17ZwdGBToddI8pDm48kKDpgNR86wHb9rK2Z-rJDk5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFgVnh1ouJBzzcVsowoUcyUM2gKs4UUyTig_7oGFCP1TmQ6l2WM7tn7mqHTODzkmeM/32078472-5053adea-baa7-11e7-9034-519002f12ac7.png',
             }}
           />
         }

@@ -32,7 +32,7 @@ const Dialog: React.FC<DialogProps> = ({
   theme,
   header,
   children,
-  backgroundColorOverlay = 'transparent',
+  backgroundColorOverlay = theme.colors.backdrop,
 }: DialogProps) => {
   const [state, setState] = useState({
     positionView: new Animated.Value(SCREEN_HEIGHT),
@@ -155,8 +155,8 @@ const styles = StyleSheet.create({
   },
   dialogContainer: {
     maxWidth: 350,
-    width: 300,
-    minHeight: 200,
+    minWidth: 200,
+    minHeight: 100,
     borderRadius: 30,
     alignItems: 'center',
     overflow: 'hidden',
@@ -169,9 +169,10 @@ const styles = StyleSheet.create({
     padding: '3%',
   },
   content: {
-    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
   },
   header: {
     marginTop: 20,
