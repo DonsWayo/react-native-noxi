@@ -1,22 +1,22 @@
-# react-native-noxi
+<h1 align="center">
+  <img src="assets/logo.png"/><br/>
+  React Native Noxi
+</h1>
 
-React native ui library
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-native-noxi"><img src="https://img.shields.io/npm/dw/react-native-noxi.svg?style=flat-square" alt="npm downloads"></a>
+  <a href="https://www.npmjs.com/package/react-native-noxi"><img src="https://img.shields.io/npm/v/react-native-noxi/latest.svg?style=flat-square" alt="npm latest version"></a>
+  <a href="https://www.npmjs.com/package/react-native-noxi"><img src="https://img.shields.io/circleci/build/github/DonsWayo/react-native-noxi?style=flat-square" alt="circleci"></a>
+</p>
 
-## Installation
+React Native Noxi provides a complete set of UI components with theme support for react native vanilla and expo projects written in typescript and fully documented with interactive and nice docs ;)!
+Ready to get started? Check out the [docs](https://donswayo.github.io/react-native-noxi/).
 
-```sh
-npm install react-native-noxi
-```
+# Links
 
-## Usage
-
-```js
-import Noxi from "react-native-noxi";
-
-// ...
-
-const result = await Noxi.multiply(3, 7);
-```
+- [Documentation](https://donswayo.github.io/react-native-noxi/)
+- [Changelog](https://github.com/donswayo/react-native-noxi/blob/master/CHANGELOG.md)
+- [Contributing](https://donswayo.github.io/react-native-noxi/docs/meta-contributing)
 
 ## Contributing
 

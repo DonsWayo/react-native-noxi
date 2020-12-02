@@ -1,6 +1,6 @@
 {
   "name": "react-native-noxi",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-rc.0",
   "description": "React native ui library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -8,11 +8,7 @@
   "react-native": "src/index",
   "source": "src/index",
   "files": [
-    "src",
     "lib",
-    "android",
-    "ios",
-    "cpp",
     "react-native-noxi.podspec",
     "!lib/typescript/example",
     "!**/__tests__",

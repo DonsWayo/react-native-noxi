@@ -49,8 +49,6 @@ declare global {
       accent: string;
       error: string;
       text: string;
-      onSurface: string;
-      onBackground: string;
       disabled: string;
       placeholder: string;
       buttonText: string;
