@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Switch,
   View,
+  Platform,
 } from 'react-native';
 import {
   DarkTheme,
@@ -53,6 +54,10 @@ const DATA = [
     id: 'c1dwewsdsdb',
     title: 'Select',
   },
+  {
+    id: 'c1dwewssssssdsdb',
+    title: 'Chip',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {
@@ -77,7 +82,13 @@ const HomeScreen = ({ navigation }) => {
     <Layout
       title="Noxi"
       largeToolbarRight={
-        <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            marginRight: Platform.OS === 'ios' ? 10 : 30,
+          }}
+        >
           <Text type="h3">
             {isEnabled ? 'current: Dark' : 'current: Light'}
           </Text>
