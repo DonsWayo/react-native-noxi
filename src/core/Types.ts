@@ -9,8 +9,6 @@ export type Theme = {
     accent: string;
     error: string;
     text: string;
-    onSurface: string;
-    onBackground: string;
     disabled: string;
     placeholder: string;
     backdrop: string;
