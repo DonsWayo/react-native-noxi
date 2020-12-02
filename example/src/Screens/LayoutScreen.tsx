@@ -5,6 +5,13 @@ import Icon from 'react-native-dynamic-vector-icons';
 
 const LayoutScreen = ({ navigation }) => {
   const [state, setstate] = useState([]);
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const wait = (timeout) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, timeout);
+    });
+  };
 
   function getData() {
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=1000')
@@ -14,6 +21,12 @@ const LayoutScreen = ({ navigation }) => {
       })
       .catch((err) => console.log(err));
   }
+
+  const onRefresh = () => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  };
 
   useEffect(() => {
     getData();
@@ -34,6 +47,9 @@ const LayoutScreen = ({ navigation }) => {
     <Layout
       title="ExampleLayout"
       canGoBack
+      enabledPullToRefresh={true}
+      refreshing={refreshing}
+      onRefresh={onRefresh}
       containerStyle={{ flexGrow: 1, padding: 8 }}
       onPressBackIcon={() => navigation.goBack()}
     >

@@ -18,6 +18,7 @@ import {
   StatusBar,
   Platform,
   FlatList,
+  RefreshControl,
 } from 'react-native';
 import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 import { EntryDirection, Entry } from './Entry';
@@ -44,6 +45,9 @@ interface LayoutProps {
   scrollViewProps?: ScrollViewProps;
   showSearchComponent?: boolean;
   searchBarHeight?: number;
+  onRefresh?: (() => void) | undefined;
+  enabledPullToRefresh?: boolean;
+  refreshing?: boolean;
   theme: ReactNativeNoxi.Theme;
 }
 
@@ -140,7 +144,6 @@ export class Layout extends PureComponent<LayoutProps> {
       headerContainerStyle = {},
       headerComponentContainerStyle = {},
       headlineStyle = {},
-      scrollContainerStyle = {},
       fadeDirection,
       scrollViewProps = {},
       searchBarHeight = SEARCH_BAR_HEIGHT,
@@ -150,6 +153,9 @@ export class Layout extends PureComponent<LayoutProps> {
       largeToolbarRight,
       onPressBackIcon,
       canGoBack = false,
+      onRefresh,
+      enabledPullToRefresh = false,
+      refreshing = false,
       theme,
     } = this.props;
     const {
@@ -275,7 +281,19 @@ export class Layout extends PureComponent<LayoutProps> {
             }
           )}
           scrollEventThrottle={8}
-          contentContainerStyle={scrollContainerStyle}
+          refreshControl={
+            // only enabled={enabledPullToRefresh} not work in 0.63
+            enabledPullToRefresh ? (
+              <RefreshControl
+                enabled={enabledPullToRefresh}
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+                tintColor={theme.colors.text}
+              />
+            ) : (
+              <></>
+            )
+          }
           {...scrollViewProps}
           data={[]}
           ListHeaderComponent={
