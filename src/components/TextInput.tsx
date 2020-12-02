@@ -75,6 +75,7 @@ const TextInput = ({
             flex: 1,
             marginLeft: 5,
             marginRight: 5,
+            color: theme.colors.text,
           },
         ]}
         value={value}
