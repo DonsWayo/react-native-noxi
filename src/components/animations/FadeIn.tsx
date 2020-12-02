@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { StyleProp, ViewStyle, Animated, Easing } from 'react-native';
+import { StyleProp, ViewStyle, Animated } from 'react-native';
 import { withTheme } from '../../core/Theme';
 
 export interface FadeInProps {
@@ -23,21 +23,13 @@ const FadeIn: React.FC<FadeInProps> = ({
   React.useEffect(() => {
     Animated.timing(visibility, {
       toValue: 1,
-      duration: animate ? 1300 * scale : 0,
+      duration: animate ? 300 * scale : 0,
       useNativeDriver: true,
-      easing: Easing.bounce,
     }).start();
   }, [scale, visibility]);
 
-  const size = visibility.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 200],
-  });
-
   const animateStyle = {
     opacity: visibility,
-    width: size,
-    height: size,
   };
 
   return (
