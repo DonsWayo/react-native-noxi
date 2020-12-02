@@ -9,11 +9,19 @@ import {
 } from 'react-native';
 import TabBarItem from './TabBarItem';
 import { withTheme } from '../../core/Theme';
+import { isIphoneX } from 'react-native-iphone-x-helper';
 
 const TabBar = ({ theme, state, descriptors, navigation }) => {
   const [translateValue] = useState(new Animated.Value(0));
   const totalWidth = Dimensions.get('window').width;
   const tabWidth = totalWidth / state.routes.length;
+  const tabBarStyleHeigth = {
+    height: Platform.OS === 'ios' ? 50 : 45,
+  };
+
+  if (isIphoneX()) {
+    tabBarStyleHeigth.height = 70;
+  }
 
   const animateLine = (index: number) => {
     Animated.spring(translateValue, {
@@ -31,6 +39,7 @@ const TabBar = ({ theme, state, descriptors, navigation }) => {
     <View
       style={[
         style.tabContainer,
+        tabBarStyleHeigth,
         { width: totalWidth, backgroundColor: theme.colors.surface },
       ]}
     >
@@ -102,13 +111,11 @@ export default withTheme(TabBar);
 
 const style = StyleSheet.create({
   tabContainer: {
-    height: 60,
     shadowOffset: {
       width: 0,
       height: -1,
     },
     borderTopColor: 'gray',
-    borderTopWidth: Platform.OS === 'ios' ? 0.5 : 0,
     shadowOpacity: 0.1,
     shadowRadius: 4.0,
     elevation: 10,
