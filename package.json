@@ -9,6 +9,7 @@
   "source": "src/index",
   "files": [
     "lib",
+    "src",
     "react-native-noxi.podspec",
     "!lib/typescript/example",
     "!**/__tests__",
