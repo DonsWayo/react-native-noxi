@@ -20,6 +20,7 @@ import SelectScreen from './Screens/SelectScreen';
 import ChipScreen from './Screens/ChipScreen';
 import CardScreen from './Screens/CardScreen';
 import ListScreen from './Screens/LayoutScreen';
+import NotificationScreen from './Screens/NotificationScreen';
 
 const Stack = createStackNavigator();
 
@@ -48,6 +49,7 @@ export default function App() {
             <Stack.Screen name="Select" component={SelectScreen} />
             <Stack.Screen name="Chip" component={ChipScreen} />
             <Stack.Screen name="Card" component={CardScreen} />
+            <Stack.Screen name="Notification" component={NotificationScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ReactNativeNoxiProvider>

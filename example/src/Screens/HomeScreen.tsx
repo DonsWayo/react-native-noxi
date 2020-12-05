@@ -62,6 +62,10 @@ const DATA = [
     id: 'sdssddfqe',
     title: 'Card',
   },
+  {
+    id: 'sdssddsdfqe',
+    title: 'Notification',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {
