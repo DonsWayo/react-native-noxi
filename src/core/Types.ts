@@ -9,6 +9,8 @@ export type Theme = {
     surface: string;
     accent: string;
     error: string;
+    success: string;
+    warning: string;
     text: string;
     disabled: string;
     placeholder: string;
