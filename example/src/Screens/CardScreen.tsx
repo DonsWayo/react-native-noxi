@@ -5,7 +5,7 @@ import { Layout, SizeBox, ImageCard, Text } from 'react-native-noxi';
 const CardScreen = ({ navigation }) => {
   return (
     <Layout
-      title="Avatars"
+      title="Card"
       containerStyle={styles.container}
       canGoBack
       onPressBackIcon={() => navigation.goBack()}
