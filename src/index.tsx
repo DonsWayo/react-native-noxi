@@ -18,6 +18,7 @@ import SelectButton from './components/Select/SelectButton';
 import SelectItem from './components/Select/SelectItem';
 import Chip from './components/Chip';
 import FadeIn from './components/animations/FadeIn';
+import ImageCard from './components/ImageCard';
 
 export {
   Button,
@@ -42,4 +43,5 @@ export {
   SelectItem,
   Chip,
   FadeIn,
+  ImageCard,
 };

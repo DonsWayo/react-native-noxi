@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
-import { StyleSheet, Text as Txt, StyleProp, ViewStyle } from 'react-native';
+import { StyleSheet, Text as Txt, StyleProp, TextStyle } from 'react-native';
 import { withTheme } from '../core/Theme';
 
 export interface ITextProps {
   children?: ReactNode;
   type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   theme: ReactNativeNoxi.Theme;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
 }
 
 const Text: React.FC<ITextProps> = ({

@@ -32,7 +32,7 @@ const DATA = [
   },
   {
     id: 'c1db-aedd5-3ad53abb28ba',
-    title: 'Layout',
+    title: 'List',
   },
   {
     id: 'c1db-aedd5',
@@ -57,6 +57,10 @@ const DATA = [
   {
     id: 'c1dwewssssssdsdb',
     title: 'Chip',
+  },
+  {
+    id: 'sdssddfqe',
+    title: 'Card',
   },
 ];
 

@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import { Layout, ListItem, Avatar } from 'react-native-noxi';
 import Icon from 'react-native-dynamic-vector-icons';
 
-const LayoutScreen = ({ navigation }) => {
+const ListScreen = ({ navigation }) => {
   const [state, setstate] = useState([]);
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -65,4 +65,4 @@ const LayoutScreen = ({ navigation }) => {
   );
 };
 
-export default LayoutScreen;
+export default ListScreen;
