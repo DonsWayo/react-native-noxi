@@ -21,6 +21,7 @@ const processNode = (node, parent) => {
 
       // Gather necessary Params
       const name = params.name ? decodeURIComponent(params.name) : 'Example';
+      const dependencies = params.dependencies ? decodeURIComponent(params.dependencies) : 'react-native-noxi@*,react-native-dynamic-vector-icons@*,@expo/vector-icons@*';
       const description = params.description
         ? decodeURIComponent(params.description)
         : 'Example usage';
@@ -38,6 +39,7 @@ const processNode = (node, parent) => {
         value: dedent`
           <div
             class="snack-player"
+            data-snack-dependencies="${dependencies}"
             data-snack-name="${name}"
             data-snack-description="${description}"
             data-snack-code="${encodedSampleCode}"
