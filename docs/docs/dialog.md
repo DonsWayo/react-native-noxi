@@ -20,88 +20,101 @@ import { Dialog } from 'react-native-noxi';
 
 ## Example
 
-```SnackPlayer name=Button%20Example
-import React from 'react';
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
+```SnackPlayer name=Dialog%20Example&supportedPlatforms=ios,android
+import React, { useState } from 'react';
+import { Image, StyleSheet } from 'react-native';
+import { Button, Dialog, Layout, SizeBox } from 'react-native-noxi';
+import {
+  LigthTheme,
+  Provider as ReactNativeNoxiProvider,
+} from 'react-native-noxi';
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
+const App = () => {
+  const [showDialog1, setshowDialog1] = useState(false);
+  const [showDialog2, setshowDialog2] = useState(false);
+  const [showDialog3, setshowDialog3] = useState(false);
+  const [showDialog4, setshowDialog4] = useState(false);
 
-const App = () => (
-  <SafeAreaView style={styles.container}>
-    <View>
-      <Text style={styles.title}>
-        The title and onPress handler are required. It is recommended to set accessibilityLabel to help make your app usable by everyone.
-      </Text>
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        Adjust the color in a way that looks standard on each platform. On  iOS, the color prop controls the color of the text. On Android, the color adjusts the background color of the button.
-      </Text>
-      <Button
-        title="Press me"
-        color="#f194ff"
-        onPress={() => Alert.alert('Button with adjusted color pressed')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        All interaction for the component are disabled.
-      </Text>
-      <Button
-        title="Press me"
-        disabled
-        onPress={() => Alert.alert('Cannot press this one')}
-      />
-    </View>
-    <Separator />
-    <View>
-      <Text style={styles.title}>
-        This layout strategy lets the title define the width of the button.
-      </Text>
-      <View style={styles.fixToText}>
-        <Button
-          title="Left button"
-          onPress={() => Alert.alert('Left button pressed')}
-        />
-        <Button
-          title="Right button"
-          onPress={() => Alert.alert('Right button pressed')}
-        />
-      </View>
-    </View>
-  </SafeAreaView>
-);
+  return (
+    <ReactNativeNoxiProvider theme={LigthTheme}>
+    <Layout
+      title="Dialogs"
+      containerStyle={styles.container}
+    >
+      <Button size="normal" onPress={() => setshowDialog1(true)}>
+        show dialog 1
+      </Button>
+      <Dialog
+        show={showDialog1}
+        title="Title"
+        header={
+          <Image
+            style={{ width: 100, height: 100 }}
+            source={{
+              uri:
+                'https://images.squarespace-cdn.com/content/v1/592e86ee9de4bb6e73d8c154/1514032294927-RQFIXIR332YVK2D58E64/ke17ZwdGBToddI8pDm48kKDpgNR86wHb9rK2Z-rJDk5Zw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFgVnh1ouJBzzcVsowoUcyUM2gKs4UUyTig_7oGFCP1TmQ6l2WM7tn7mqHTODzkmeM/32078472-5053adea-baa7-11e7-9034-519002f12ac7.png',
+            }}
+          />
+        }
+      >
+        <Button size="small" onPress={() => setshowDialog1(false)}>
+          close
+        </Button>
+      </Dialog>
+      <SizeBox />
+      <Button size="normal" onPress={() => setshowDialog2(true)}>
+        show dialog 2
+      </Button>
+      <Dialog show={showDialog2} title="Title">
+        <Button size="small" onPress={() => setshowDialog2(false)}>
+          close
+        </Button>
+        <Button size="small" onPress={() => setshowDialog2(false)}>
+          ok
+        </Button>
+      </Dialog>
+      <SizeBox />
+      <Button size="normal" onPress={() => setshowDialog3(true)}>
+        show dialog 3
+      </Button>
+      <Dialog
+        show={showDialog3}
+        title="LOL"
+        message="long very long message that says something that is matter"
+      >
+        <Button size="small" onPress={() => setshowDialog3(false)}>
+          ok
+        </Button>
+      </Dialog>
+      <SizeBox />
+      <Button size="normal" onPress={() => setshowDialog4(true)}>
+        show dialog 4
+      </Button>
+      <Dialog
+        show={showDialog4}
+        backgroundColorOverlay="red"
+        title="Red bg"
+        message="change overlay"
+      >
+        <Button size="small" onPress={() => setshowDialog4(false)}>
+          ok
+        </Button>
+      </Dialog>
+    </Layout>
+    </ReactNativeNoxiProvider>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginHorizontal: 16,
-  },
-  title: {
-    textAlign: 'center',
-    marginVertical: 8,
-  },
-  fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: '#737373',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    alignItems: 'center',
   },
 });
 
 export default App;
+
 ```
 
 ---
