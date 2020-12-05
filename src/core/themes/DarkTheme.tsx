@@ -3,6 +3,7 @@ import type { Theme } from '../Types';
 const DarkTheme: Theme = {
   dark: true,
   roundness: 8,
+  padding: 8,
   iconsTheme: 'AntDesign',
   colors: {
     primary: '#0D83FF',
