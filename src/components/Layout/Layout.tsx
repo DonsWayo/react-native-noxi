@@ -13,7 +13,6 @@ import {
   NativeSyntheticEvent,
   LayoutChangeEvent,
   StyleSheet,
-  TextInput,
   SafeAreaView,
   StatusBar,
   Platform,
@@ -24,6 +23,7 @@ import { ifIphoneX, isIphoneX } from 'react-native-iphone-x-helper';
 import { EntryDirection, Entry } from './Entry';
 import Icon from 'react-native-dynamic-vector-icons';
 import { withTheme } from '../../core/Theme';
+import TextInput from '../TextInput';
 const { height, width } = Dimensions.get('window');
 const SEARCH_BAR_HEIGHT = 40;
 
@@ -44,10 +44,12 @@ interface LayoutProps {
   fadeDirection?: EntryDirection;
   scrollViewProps?: ScrollViewProps;
   showSearchComponent?: boolean;
+  showSearchComponentWithoutScroll?: boolean;
   searchBarHeight?: number;
   onRefresh?: (() => void) | undefined;
   enabledPullToRefresh?: boolean;
   refreshing?: boolean;
+  largeToolbar?: boolean;
   theme: ReactNativeNoxi.Theme;
 }
 
@@ -56,6 +58,7 @@ export class Layout extends PureComponent<LayoutProps> {
     scrollViewProps: {},
     searchBarHeight: SEARCH_BAR_HEIGHT,
     showSearchComponent: false,
+    showSearchComponentWithoutScroll: false,
     ScrollComponent: ScrollView,
   };
 
@@ -71,8 +74,18 @@ export class Layout extends PureComponent<LayoutProps> {
   scrollAnimatedValue = new Animated.Value(0);
 
   componentDidMount = () => {
-    const { showSearchComponent } = this.props;
-    if (showSearchComponent) {
+    const {
+      showSearchComponent,
+      showSearchComponentWithoutScroll,
+    } = this.props;
+    if (showSearchComponent && showSearchComponentWithoutScroll) {
+      setTimeout(() => {
+        this.setState({
+          searchBarFixed: true,
+          searchBarShrinking: false,
+        });
+      }, 100);
+    } else if (showSearchComponent && !showSearchComponentWithoutScroll) {
       this.scrollAnimatedValue.addListener((value) => {
         const { searchBarFixed } = this.state;
         const { searchBarHeight = SEARCH_BAR_HEIGHT } = this.props;
@@ -84,7 +97,7 @@ export class Layout extends PureComponent<LayoutProps> {
             searchBarFixed: true,
             searchBarShrinking: false,
           });
-        } else if (value.value > 0 && searchBarFixed) {
+        } else if (value.value > 30 && searchBarFixed) {
           this.setState({
             searchBarFixed: false,
             searchBarShrinking: true,
@@ -156,6 +169,7 @@ export class Layout extends PureComponent<LayoutProps> {
       onRefresh,
       enabledPullToRefresh = false,
       refreshing = false,
+      largeToolbar = true,
       theme,
     } = this.props;
     const {
@@ -225,7 +239,17 @@ export class Layout extends PureComponent<LayoutProps> {
       <View
         style={[styles.container, { backgroundColor: theme.colors.background }]}
       >
-        <View style={[styles.headerContainer, headerContainerStyle]}>
+        <View
+          style={[
+            styles.headerContainer,
+            {
+              backgroundColor: theme.colors.background,
+              shadowOpacity: !largeToolbar || isHeaderScrolled ? 0.2 : 0,
+            },
+            styles.headerContainerCollapse,
+            headerContainerStyle,
+          ]}
+        >
           <SafeAreaView
             style={[
               styles.headerComponentContainer,
@@ -247,7 +271,7 @@ export class Layout extends PureComponent<LayoutProps> {
             )}
             <Entry
               style={styles.headerComponentMain}
-              visible={isHeaderScrolled}
+              visible={largeToolbar ? isHeaderScrolled : true}
               direction={fadeDirection}
             >
               <Text
@@ -297,56 +321,65 @@ export class Layout extends PureComponent<LayoutProps> {
           {...scrollViewProps}
           data={[]}
           ListHeaderComponent={
-            <Animated.View
-              style={[
-                showSearchComponent
-                  ? {
-                      height: searchBarFixed
-                        ? expandedLargeTitleHeight
-                        : largeTitleAnimation,
-                    }
-                  : {
-                      paddingBottom: 15,
-                      flex: 1,
-                      flexDirection: 'row',
-                    },
-              ]}
-              onLayout={this.onLargeTitleLayout}
-            >
-              <View style={styles.scroll}>
-                <Animated.Text
-                  style={[
-                    styles.title,
-                    titleStyle,
-                    titleStyles,
-                    {
-                      fontSize: animatedFontSize,
-                      color: theme.colors.text,
-                    },
-                  ]}
-                  onLayout={this.onLayout}
-                >
-                  {title}
-                </Animated.Text>
-              </View>
-              {showSearchComponent ? (
+            <>
+              {largeToolbar ? (
                 <Animated.View
                   style={[
-                    styles.searchContainer,
-                    {
-                      height: searchBarFixed
-                        ? searchBarHeight
-                        : searchFieldAnimation,
-                    },
+                    showSearchComponent
+                      ? {
+                          height: searchBarFixed
+                            ? expandedLargeTitleHeight
+                            : largeTitleAnimation,
+                        }
+                      : {
+                          flex: 1,
+                          flexDirection: 'row',
+                        },
                   ]}
+                  onLayout={this.onLargeTitleLayout}
                 >
-                  <Entry visible={searchBarFixed}>
-                    <TextInput placeholder="Search" />
-                  </Entry>
+                  <View style={styles.scroll}>
+                    <Animated.Text
+                      style={[
+                        styles.title,
+                        titleStyle,
+                        titleStyles,
+                        {
+                          fontSize: animatedFontSize,
+                          color: theme.colors.text,
+                        },
+                      ]}
+                      onLayout={this.onLayout}
+                    >
+                      {title}
+                    </Animated.Text>
+                  </View>
+                  {showSearchComponent ? (
+                    <Animated.View
+                      style={[
+                        styles.searchContainer,
+                        {
+                          height: searchBarFixed
+                            ? searchBarHeight
+                            : searchFieldAnimation,
+                        },
+                      ]}
+                    >
+                      <Entry visible={searchBarFixed}>
+                        <TextInput
+                          placeholder="Search"
+                          iconLeftName="search1"
+                          style={{ height: searchBarHeight }}
+                        />
+                      </Entry>
+                    </Animated.View>
+                  ) : null}
+                  {largeToolbarRight}
                 </Animated.View>
-              ) : null}
-              {largeToolbarRight}
-            </Animated.View>
+              ) : (
+                <></>
+              )}
+            </>
           }
           ListFooterComponent={
             <Animated.View style={[styles.children, containerStyle]}>
@@ -369,6 +402,15 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     height: containerHeight,
+  },
+  headerContainerCollapse: {
+    elevation: 8,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowRadius: 4,
   },
   headerComponentContainer: {
     height: containerHeight,
@@ -417,22 +459,10 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   searchContainer: {
-    marginTop: 15,
+    marginTop: 0,
+    marginBottom: 10,
     marginLeft: 20,
     marginRight: 20,
-    backgroundColor: 'gray',
-    height: SEARCH_BAR_HEIGHT,
-    left: 0,
-    right: 0,
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  search: {
-    padding: 10,
-    opacity: 0,
   },
   children: {
     flex: 1,
