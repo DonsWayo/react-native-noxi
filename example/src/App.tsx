@@ -21,6 +21,7 @@ import ChipScreen from './Screens/ChipScreen';
 import CardScreen from './Screens/CardScreen';
 import ListScreen from './Screens/LayoutScreen';
 import NotificationScreen from './Screens/NotificationScreen';
+import ImageScreen from './Screens/ImageScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +51,7 @@ export default function App() {
             <Stack.Screen name="Chip" component={ChipScreen} />
             <Stack.Screen name="Card" component={CardScreen} />
             <Stack.Screen name="Notification" component={NotificationScreen} />
+            <Stack.Screen name="Image" component={ImageScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </ReactNativeNoxiProvider>
