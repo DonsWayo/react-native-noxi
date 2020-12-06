@@ -15,6 +15,7 @@ interface TextInputProps {
   iconLeftName?: ReactNode;
   iconRightName?: ReactNode;
   onChange?: (args: any) => void;
+  onChangeText?: (args: any) => void;
   onBlur?: (args: any) => void;
   onPressRigthIcon?: () => void;
   onPressLeftIcon?: () => void;
@@ -29,6 +30,7 @@ interface TextInputProps {
 const TextInput = ({
   theme,
   onChange,
+  onChangeText,
   onBlur,
   placeholder,
   value,
@@ -70,6 +72,7 @@ const TextInput = ({
         onBlur={onBlur}
         editable={editable}
         placeholder={placeholder}
+        onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         selectionColor={theme.colors.primary}
         placeholderTextColor={
