@@ -19,11 +19,9 @@ export interface ImageProps {
   imageStyle?: StyleProp<ImageStyle>;
   placeHolderSource?: Animated.WithAnimatedValue<ImageSourcePropType>;
   imageSource: Animated.WithAnimatedValue<ImageSourcePropType>;
-  resizeMode?:
-    | Animated.WithAnimatedValue<
-        'cover' | 'contain' | 'stretch' | 'repeat' | 'center' | undefined
-      >
-    | undefined;
+  resizeMode?: Animated.WithAnimatedValue<
+    'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
+  >;
 }
 
 const Image: React.FC<ImageProps> = ({
@@ -61,17 +59,21 @@ const Image: React.FC<ImageProps> = ({
   }
   return (
     <View style={style}>
-      <Animated.Image
-        resizeMode={resizeMode}
-        style={[
-          styles.image,
-          { opacity: state.placeholderOpacity },
-          imageStyle,
-        ]}
-        source={placeHolderSource}
-        onLoad={loadPlaceholder}
-        blurRadius={placeholderBlurRadius}
-      />
+      {placeHolderSource ? (
+        <Animated.Image
+          resizeMode={resizeMode}
+          style={[
+            styles.image,
+            { opacity: state.placeholderOpacity },
+            imageStyle,
+          ]}
+          source={placeHolderSource}
+          onLoad={loadPlaceholder}
+          blurRadius={placeholderBlurRadius}
+        />
+      ) : (
+        <></>
+      )}
       <Animated.Image
         resizeMode={resizeMode}
         style={[styles.image, { opacity: state.imageOpacity }, imageStyle]}

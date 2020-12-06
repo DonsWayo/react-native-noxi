@@ -5,6 +5,7 @@ import {
   View,
   StyleProp,
   TextStyle,
+  ViewStyle,
 } from 'react-native';
 import { withTheme } from '../core/Theme';
 import Icon from 'react-native-dynamic-vector-icons';
@@ -21,7 +22,8 @@ interface TextInputProps {
   value?: string;
   secureTextEntry?: boolean;
   editable?: boolean;
-  style?: StyleProp<TextStyle>;
+  style?: StyleProp<ViewStyle>;
+  styleText?: StyleProp<TextStyle>;
 }
 
 const TextInput = ({
@@ -35,6 +37,8 @@ const TextInput = ({
   onPressLeftIcon,
   iconLeftName,
   iconRightName,
+  styleText,
+  style,
   editable = true,
 }: TextInputProps) => {
   return (
@@ -46,6 +50,7 @@ const TextInput = ({
           borderWidth: 0.5,
           borderColor: editable ? theme.colors.primary : theme.colors.disabled,
         },
+        style,
       ]}
     >
       {iconLeftName ? (
@@ -77,6 +82,7 @@ const TextInput = ({
             marginRight: 5,
             color: theme.colors.text,
           },
+          styleText,
         ]}
         value={value}
       />

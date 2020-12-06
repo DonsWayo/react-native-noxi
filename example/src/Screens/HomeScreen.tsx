@@ -66,6 +66,10 @@ const DATA = [
     id: 'sdssddsdfqe',
     title: 'Notification',
   },
+  {
+    id: 'sdssddss3333dfqe',
+    title: 'Image',
+  },
 ];
 
 const HomeScreen = ({ navigation }) => {
