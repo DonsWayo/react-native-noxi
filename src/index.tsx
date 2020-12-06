@@ -20,6 +20,7 @@ import Chip from './components/Chip';
 import FadeIn from './components/animations/FadeIn';
 import ImageCard from './components/ImageCard';
 import Notification from './components/Notification';
+import Image from './components/Image';
 
 export {
   Button,
@@ -46,4 +47,5 @@ export {
   FadeIn,
   ImageCard,
   Notification,
+  Image,
 };
