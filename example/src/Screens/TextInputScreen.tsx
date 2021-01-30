@@ -1,10 +1,15 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { SizeBox, TextInput } from 'react-native-noxi';
+import { StyleSheet } from 'react-native';
+import { Layout, SizeBox, TextInput } from 'react-native-noxi';
 
-const TextInputScreen = () => {
+const TextInputScreen = ({ navigation }) => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <Layout
+      title="Text Input"
+      containerStyle={styles.container}
+      canGoBack
+      onPressBackIcon={() => navigation.goBack()}
+    >
       <TextInput iconLeftName="home" />
       <SizeBox />
       <TextInput iconRightName="github" />
@@ -12,7 +17,7 @@ const TextInputScreen = () => {
       <TextInput iconLeftName="home" iconRightName="github" />
       <SizeBox />
       <TextInput iconLeftName="home" iconRightName="github" editable={false} />
-    </ScrollView>
+    </Layout>
   );
 };
 
@@ -21,7 +26,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 8,
   },
 });
 

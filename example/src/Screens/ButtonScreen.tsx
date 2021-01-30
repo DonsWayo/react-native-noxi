@@ -1,10 +1,15 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { Button, SizeBox } from 'react-native-noxi';
+import { StyleSheet } from 'react-native';
+import { Button, Layout, SizeBox } from 'react-native-noxi';
 
-const ButtonScreen = () => {
+const ButtonScreen = ({ navigation }) => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <Layout
+      title="Buttons"
+      containerStyle={styles.container}
+      canGoBack
+      onPressBackIcon={() => navigation.goBack()}
+    >
       <Button size="small">button</Button>
       <SizeBox />
       <Button size="small" type="square" outline>
@@ -26,7 +31,7 @@ const ButtonScreen = () => {
       </Button>
       <SizeBox />
       <Button size="full">button</Button>
-    </ScrollView>
+    </Layout>
   );
 };
 

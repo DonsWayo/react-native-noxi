@@ -7,6 +7,8 @@ import {
 import { View } from 'react-native';
 import ButtonScreen from './ButtonScreen';
 import { TabBar } from 'react-native-noxi';
+import AvatarScreen from './AvatarScreen';
+import CardScreen from './CardScreen';
 
 export const BottomMenu = () => {
   const Tab = createBottomTabNavigator();
@@ -16,8 +18,8 @@ export const BottomMenu = () => {
         tabBar={(props: BottomTabBarProps) => <TabBar {...props} />}
       >
         <Tab.Screen name="search1" component={ButtonScreen} />
-        <Tab.Screen name="dashboard" component={ButtonScreen} />
-        <Tab.Screen name="profile" component={ButtonScreen} />
+        <Tab.Screen name="dashboard" component={AvatarScreen} />
+        <Tab.Screen name="profile" component={CardScreen} />
       </Tab.Navigator>
     </View>
   );
