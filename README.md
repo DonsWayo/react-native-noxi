@@ -15,8 +15,8 @@ Ready to get started? Check out the [docs](https://donswayo.github.io/react-nati
 # Links
 
 - [Documentation](https://donswayo.github.io/react-native-noxi/)
-- [Changelog](https://github.com/donswayo/react-native-noxi/blob/master/CHANGELOG.md)
-- [Contributing](https://donswayo.github.io/react-native-noxi/docs/meta-contributing)
+- [Changelog](https://github.com/DonsWayo/react-native-noxi/releases/tag/v0.2.1)
+- [Contributing](https://github.com/DonsWayo/react-native-noxi/blob/master/CONTRIBUTING.md)
 
 ## Contributing
 
