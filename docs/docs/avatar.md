@@ -57,19 +57,6 @@ export default App;
 
 # Reference
 
-## Props
-
-* [color](avatarprops.md#color)
-* [onPress](avatarprops.md#onpress)
-* [size](avatarprops.md#size)
-* [src](avatarprops.md#src)
-* [style](avatarprops.md#style)
-* [styleText](avatarprops.md#styletext)
-* [text](avatarprops.md#text)
-* [textColor](avatarprops.md#textcolor)
-* [theme](avatarprops.md#theme)
-* [type](avatarprops.md#type)
-
 ## Properties
 
 ### color

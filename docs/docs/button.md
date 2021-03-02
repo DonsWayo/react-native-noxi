@@ -67,16 +67,6 @@ const styles = StyleSheet.create({
 
 # Reference
 
-## Props
-
-* [children](buttonprops.md#children)
-* [loading](buttonprops.md#loading)
-* [onLayout](buttonprops.md#onlayout)
-* [onPress](buttonprops.md#onpress)
-* [size](buttonprops.md#size)
-* [style](buttonprops.md#style)
-* [theme](buttonprops.md#theme)
-
 ## Properties
 
 ### children

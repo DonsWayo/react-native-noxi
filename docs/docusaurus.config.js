@@ -1,13 +1,13 @@
 module.exports = {
   title: 'My Site',
   tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://donswayo.github.iom',
+  baseUrl: '/react-native-noxi/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'donswayo', // Usually your GitHub org/user name.
+  projectName: 'react-native-noxi', // Usually your repo name.
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
   scripts: [
     {
