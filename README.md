@@ -1,6 +1,11 @@
 <h1 align="center">
   <img src="docs/static/img/logo.png"/><br/>
   React Native Noxi
+  <br/>
+  <br/>
+  <p align="center">
+  <img height="400" src="assets/preview.gif"/><br/>
+  </p>
 </h1>
 
 <p align="center">
