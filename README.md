@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="assets/logo.png"/><br/>
+  <img src="docs/static/img/logo.png"/><br/>
   React Native Noxi
 </h1>
 
