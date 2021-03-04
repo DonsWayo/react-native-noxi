@@ -1,0 +1,74 @@
+{
+  "version-1.0.0/someSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.0.0/doc1"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/doc2"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Components",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.0.0/avatar"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/button"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/dialog"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/fab"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/textinput"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/imagecard"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/notification"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/select"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/layout"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/text"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/listitem"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/sizebox"
+        }
+      ]
+    }
+  ]
+}
