@@ -3,7 +3,7 @@ module.exports = {
   tagline: 'A set of React Native components',
   url: 'https://donswayo.github.iom',
   baseUrl: '/react-native-noxi/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'donswayo', // Usually your GitHub org/user name.
