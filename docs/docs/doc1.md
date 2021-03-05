@@ -57,7 +57,7 @@ npm install react-native-noxi git://github.com/WrathChaos/react-native-dynamic-v
 <TabItem value="yarn">
 
 ```shell
-yarn add react-native-noxi git://github.com/shakacode/WrathChaos/react-native-dynamic-vector-icons.git#expo
+yarn add react-native-noxi git://github.com/WrathChaos/react-native-dynamic-vector-icons.git#expo
 ```
 
 </TabItem>
