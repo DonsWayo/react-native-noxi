@@ -1,6 +1,6 @@
 {
   "name": "react-native-noxi",
-  "version": "0.2.1",
+  "version": "1.0.1",
   "description": "React native ui library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -21,7 +21,7 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
-    "release": "release-it",
+    "release": "release-it --npm.skipChecks --no-git.requireCleanWorkingDir",
     "example": "yarn --cwd example",
     "docs": "yarn --cwd docs",
     "pods": "cd example && pod-install --quiet",
