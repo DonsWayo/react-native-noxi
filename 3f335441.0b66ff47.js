@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{84:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/react-native-noxi/blog/welcome"},{"title":"Hello","permalink":"/react-native-noxi/blog/hello-world"},{"title":"Hola","permalink":"/react-native-noxi/blog/hola"}]}')}}]);
