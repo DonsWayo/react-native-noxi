@@ -179,7 +179,10 @@ export class Layout extends PureComponent<LayoutProps> {
       largeTitleHeight: _largeTitleHeight,
     } = this.state;
 
-    const fontSize = titleStyle ? (titleStyle as any).fontSize : 34;
+    const fontSize =
+      titleStyle && (titleStyle as any).fontSize
+        ? (titleStyle as any).fontSize
+        : 34;
     const titleStyles = {
       fontSize,
       lineHeight: fontSize * 1.2,
@@ -341,13 +344,13 @@ export class Layout extends PureComponent<LayoutProps> {
                   <View style={styles.scroll}>
                     <Animated.Text
                       style={[
-                        styles.title,
-                        titleStyle,
-                        titleStyles,
                         {
                           fontSize: animatedFontSize,
                           color: theme.colors.text,
                         },
+                        styles.title,
+                        titleStyles,
+                        titleStyle,
                       ]}
                       onLayout={this.onLayout}
                     >
