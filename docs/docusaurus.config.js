@@ -1,13 +1,13 @@
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
+  title: 'React Native Noxi',
+  tagline: 'A set of React Native components',
+  url: 'https://donswayo.github.iom',
+  baseUrl: '/react-native-noxi/',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'donswayo', // Usually your GitHub org/user name.
+  projectName: 'react-native-noxi', // Usually your repo name.
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
   scripts: [
     {
@@ -18,11 +18,12 @@ module.exports = {
     { src: 'https://snack.expo.io/embed.js', defer: true },
   ],
   themeConfig: {
+    sidebarCollapsible: false,
     navbar: {
-      title: 'My Site',
+      title: 'React Native Noxi',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'React Native Noxi Logo',
+        src: 'img/logo.png',
       },
       items: [
         {
@@ -31,12 +32,23 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
+        // { to: 'blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/DonsWayo/react-native-noxi',
           label: 'GitHub',
           position: 'right',
         },
+        {
+          type: 'docsVersionDropdown',
+          position: 'left',
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ],
+        }
       ],
     },
     footer: {
@@ -46,12 +58,12 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Installation',
               to: 'docs/',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: 'Components',
+              to: 'docs/avatar',
             },
           ],
         },
@@ -60,33 +72,33 @@ module.exports = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/questions/tagged/react-native-noxi',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discordapp.com/invite/react-native-noxi',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/react-native-noxi',
             },
           ],
         },
         {
           title: 'More',
           items: [
-            {
+/*             {
               label: 'Blog',
               to: 'blog',
-            },
+            }, */
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/facebook/react-native-noxi',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: ` `,
     },
   },
   presets: [

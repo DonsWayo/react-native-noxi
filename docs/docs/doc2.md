@@ -1,6 +1,26 @@
 ---
 id: doc2
-title: Document Number 2
+title: Usage
 ---
 
-This is a link to [another document.](doc3.md) This is a link to an [external page.](http://www.example.com/)
+### Add the provider on the root
+
+```jsx
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import App from './src/App';
+import {
+  LigthTheme,
+  Provider as ReactNativeNoxiProvider,
+} from 'react-native-noxi';
+
+export default function Main() {
+  return (
+    <ReactNativeNoxiProvider theme={LigthTheme}>
+      <App />
+    </ReactNativeNoxiProvider>
+  );
+}
+
+AppRegistry.registerComponent(appName, () => Main);
+```

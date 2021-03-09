@@ -63,6 +63,17 @@ function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div>
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png" />
+        <link rel="manifest" href="/static/img/site.webmanifest" />
+        <link rel="mask-icon" href="/static/img/safari-pinned-tab.svg" color="#5bbad5" />
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="/static/img/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+      </div>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -80,7 +91,7 @@ function Home() {
         </div>
       </header>
       <main>
-        {features && features.length > 0 && (
+       {/*  {features && features.length > 0 && (
           <section className={styles.features}>
             <div className="container">
               <div className="row">
@@ -90,7 +101,7 @@ function Home() {
               </div>
             </div>
           </section>
-        )}
+        )} */}
       </main>
     </Layout>
   );

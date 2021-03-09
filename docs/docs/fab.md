@@ -67,17 +67,6 @@ export default App;
 
 # Reference
 
-## Props
-
-* [backgroundColorOverlay](dialogprops.md#backgroundcoloroverlay)
-* [children](dialogprops.md#children)
-* [duration](dialogprops.md#duration)
-* [header](dialogprops.md#header)
-* [message](dialogprops.md#message)
-* [show](dialogprops.md#show)
-* [theme](dialogprops.md#theme)
-* [title](dialogprops.md#title)
-
 ## Properties
 
 ### backgroundColorOverlay

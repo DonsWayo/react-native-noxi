@@ -14,7 +14,7 @@ const ListScreen = ({ navigation }) => {
   };
 
   function getData() {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=1000')
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=20')
       .then((res) => res.json())
       .then((data) => {
         setstate(data);
@@ -25,7 +25,7 @@ const ListScreen = ({ navigation }) => {
   const onRefresh = () => {
     setRefreshing(true);
 
-    wait(2000).then(() => setRefreshing(false));
+    wait(1000).then(() => setRefreshing(false));
   };
 
   useEffect(() => {
