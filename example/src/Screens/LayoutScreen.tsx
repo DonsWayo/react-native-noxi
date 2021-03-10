@@ -48,6 +48,7 @@ const ListScreen = ({ navigation }) => {
       title="ExampleLayout"
       canGoBack
       enabledPullToRefresh={true}
+      largeToolbar={true}
       refreshing={refreshing}
       onRefresh={onRefresh}
       containerStyle={{ flexGrow: 1, padding: 8 }}

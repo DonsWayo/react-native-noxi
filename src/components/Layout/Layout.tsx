@@ -116,7 +116,7 @@ export class Layout extends PureComponent<LayoutProps> {
 
   onLargeTitleLayout = (event: LayoutChangeEvent) => {
     const { largeTitleHeight } = this.state;
-    const { searchBarHeight = 40 } = this.props;
+    const { searchBarHeight = 30 } = this.props;
     if (!largeTitleHeight) {
       this.setState({
         largeTitleHeight:
@@ -245,11 +245,12 @@ export class Layout extends PureComponent<LayoutProps> {
         <View
           style={[
             styles.headerContainer,
+            styles.headerContainerCollapse,
             {
               backgroundColor: theme.colors.background,
               shadowOpacity: !largeToolbar || isHeaderScrolled ? 0.2 : 0,
+              elevation: !largeToolbar || isHeaderScrolled ? 8 : 0,
             },
-            styles.headerContainerCollapse,
             headerContainerStyle,
           ]}
         >
@@ -260,7 +261,12 @@ export class Layout extends PureComponent<LayoutProps> {
             ]}
           >
             {!toolbarLeft && canGoBack ? (
-              <View style={styles.headerComponentLeft}>
+              <View
+                style={[
+                  styles.headerComponentLeft,
+                  { marginTop: Platform.OS === 'ios' ? 0 : '5%' },
+                ]}
+              >
                 <Icon
                   name="arrow-back"
                   type="ionicons"
@@ -395,7 +401,7 @@ export class Layout extends PureComponent<LayoutProps> {
   }
 }
 
-const containerHeight = ifIphoneX(88, 60);
+const containerHeight = ifIphoneX(88, 50);
 
 const styles = StyleSheet.create({
   container: {
@@ -407,7 +413,7 @@ const styles = StyleSheet.create({
     height: containerHeight,
   },
   headerContainerCollapse: {
-    elevation: 8,
+    elevation: 0,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
