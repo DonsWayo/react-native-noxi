@@ -250,6 +250,10 @@ export class Layout extends PureComponent<LayoutProps> {
               backgroundColor: theme.colors.background,
               shadowOpacity: !largeToolbar || isHeaderScrolled ? 0.2 : 0,
               elevation: !largeToolbar || isHeaderScrolled ? 8 : 0,
+              height:
+                Platform.OS === 'android' && isHeaderScrolled
+                  ? 50
+                  : containerHeight,
             },
             headerContainerStyle,
           ]}
@@ -264,7 +268,7 @@ export class Layout extends PureComponent<LayoutProps> {
               <View
                 style={[
                   styles.headerComponentLeft,
-                  { marginTop: Platform.OS === 'ios' ? 0 : '5%' },
+                  { marginTop: Platform.OS === 'ios' ? 0 : 40 },
                 ]}
               >
                 <Icon
@@ -401,7 +405,7 @@ export class Layout extends PureComponent<LayoutProps> {
   }
 }
 
-const containerHeight = ifIphoneX(88, 50);
+const containerHeight = ifIphoneX(88, 40);
 
 const styles = StyleSheet.create({
   container: {
@@ -456,6 +460,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 0.2,
     marginLeft: -width / 24,
+    marginTop: Platform.OS === 'android' ? 50 : undefined,
   },
   title: {
     letterSpacing: 0.011,
