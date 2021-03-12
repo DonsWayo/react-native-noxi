@@ -53,6 +53,8 @@ interface LayoutProps {
   theme: ReactNativeNoxi.Theme;
 }
 
+const containerHeight = ifIphoneX(80, 20);
+
 export class Layout extends PureComponent<LayoutProps> {
   static defaultProps = {
     scrollViewProps: {},
@@ -244,7 +246,6 @@ export class Layout extends PureComponent<LayoutProps> {
       >
         <View
           style={[
-            styles.headerContainer,
             styles.headerContainerCollapse,
             {
               backgroundColor: theme.colors.background,
@@ -404,8 +405,6 @@ export class Layout extends PureComponent<LayoutProps> {
     );
   }
 }
-
-const containerHeight = ifIphoneX(88, 40);
 
 const styles = StyleSheet.create({
   container: {
