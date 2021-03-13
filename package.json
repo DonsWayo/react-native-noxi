@@ -1,6 +1,6 @@
 {
   "name": "react-native-noxi",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "React native ui library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
