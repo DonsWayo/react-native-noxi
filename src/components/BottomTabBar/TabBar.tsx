@@ -66,6 +66,8 @@ const TabBar = ({ theme, state, descriptors, navigation }) => {
 
           const isFocused = state.index === index;
 
+          const iconFamily = options.iconFamily;
+
           const onPress = () => {
             const event = navigation.emit({
               type: 'tabPress',
@@ -98,7 +100,11 @@ const TabBar = ({ theme, state, descriptors, navigation }) => {
               style={{ flex: 1 }}
               key={index}
             >
-              <TabBarItem iconName={label.toString()} isCurrent={isFocused} />
+              <TabBarItem
+                iconName={label.toString()}
+                isCurrent={isFocused}
+                iconFamily={iconFamily}
+              />
             </TouchableOpacity>
           );
         })}

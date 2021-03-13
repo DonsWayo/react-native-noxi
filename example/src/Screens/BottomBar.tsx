@@ -17,7 +17,14 @@ export const BottomMenu = () => {
       <Tab.Navigator
         tabBar={(props: BottomTabBarProps) => <TabBar {...props} />}
       >
-        <Tab.Screen name="search1" component={ButtonScreen} />
+        <Tab.Screen
+          name="search1"
+          component={ButtonScreen}
+          options={({}) => ({
+            tabBarLabel: 'md-map',
+            iconFamily: 'Ionicons',
+          })}
+        />
         <Tab.Screen name="dashboard" component={AvatarScreen} />
         <Tab.Screen name="profile" component={CardScreen} />
       </Tab.Navigator>

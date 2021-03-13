@@ -53,7 +53,7 @@ interface LayoutProps {
   theme: ReactNativeNoxi.Theme;
 }
 
-const containerHeight = ifIphoneX(80, 20);
+const containerHeight = ifIphoneX(80, 35);
 
 export class Layout extends PureComponent<LayoutProps> {
   static defaultProps = {

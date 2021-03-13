@@ -7,10 +7,11 @@ import { isIphoneX } from 'react-native-iphone-x-helper';
 type Props = {
   iconName: string;
   isCurrent?: boolean;
+  iconFamily?: string;
   theme: ReactNativeNoxi.Theme;
 };
 
-const TabBarItem = ({ iconName, isCurrent, theme }: Props) => {
+const TabBarItem = ({ iconName, isCurrent, theme, iconFamily }: Props) => {
   const tabBarItemStyleHeigth = {
     marginTop: Platform.OS === 'ios' ? -3 : 0,
   };
@@ -23,7 +24,7 @@ const TabBarItem = ({ iconName, isCurrent, theme }: Props) => {
     <View style={[styles.item, tabBarItemStyleHeigth]}>
       <Icon
         name={iconName}
-        type={theme.iconsTheme}
+        type={iconFamily ? iconFamily : theme.iconsTheme}
         size={30}
         color={isCurrent ? theme.colors.primary : 'grey'}
       />
