@@ -14,7 +14,7 @@ export interface IFABProps {
   type?: 'small' | 'large';
   theme: ReactNativeNoxi.Theme;
   icon: string;
-  enabled?: boolean;
+  iconColor?: string;
   visible?: boolean;
   style?: StyleProp<ViewStyle>;
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
@@ -27,7 +27,7 @@ const FAB: React.FC<IFABProps> = ({
   icon,
   onPress,
   visible = true,
-  enabled = true,
+  iconColor = 'white',
   style,
   position = 'bottom-right',
 }) => {
@@ -97,7 +97,7 @@ const FAB: React.FC<IFABProps> = ({
           name={icon}
           type={theme.iconsTheme}
           size={30}
-          color={enabled ? theme.colors.buttonText : theme.colors.disabled}
+          color={iconColor}
           onPress={onPress}
         />
       </TouchableOpacity>
